@@ -401,10 +401,14 @@ img { max-width: 100%; height: auto; display: block; }
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--card-bg);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    border: 1px solid var(--border-color);
+    background-color: #020202;
+}
+
+.mnemos-logo {
+    width: 50%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }
 
 .mnemos-logo.mnemos-dark {
