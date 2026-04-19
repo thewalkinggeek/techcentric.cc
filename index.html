@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>techcentric.cc - The Personal Website of Jon Schoenberger</title>
+    <meta name="description" content="The Interactive Online Career of Jon Schoenberger. IT Specialist, Consultant, and Technician.">
+    <link rel="canonical" href="https://www.techcentric.cc/" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <!-- Preload the LCP image to improve performance -->
+    <link rel="preload" href="images/avatar-laptop.webp" as="image">
+    <style>
+        /* Global Styles & Variables (Critical) */
+        :root {
+            --font-primary: 'Poppins', sans-serif;
+            --font-secondary: 'Lato', sans-serif;
+
+            /* Light Mode Variables (Critical) */
+            --bg-color-light: #f8f9fa;
+            --text-color-light: #212529;
+            --primary-accent-light: #007bff;
+            --secondary-accent-light: #6c757d;
+            --card-bg-light: #ffffff;
+            --border-color-light: #dee2e6;
+            --input-bg-light: #fff;
+            --input-border-light: #ced4da;
+            --bg-overlay-light: rgba(248, 249, 250, 0.88);
+
+            /* Dark Mode Variables (Critical) */
+            --bg-color-dark: #000000;
+            --text-color-dark: #e9ecef;
+            --primary-accent-dark: #58a6ff;
+            --secondary-accent-dark: #adb5bd;
+            --card-bg-dark: #2c3034;
+            --border-color-dark: #495057;
+            --input-bg-dark: #25292d;
+            --input-border-dark: #495057;
+            --bg-overlay-dark: rgba(26, 29, 32, 0.92);
+
+            /* Current theme variables (Critical) */
+            --bg-color: var(--bg-color-light);
+            --text-color: var(--text-color-light);
+            --primary-accent: var(--primary-accent-light);
+            --secondary-accent: var(--secondary-accent-light);
+            --card-bg: var(--card-bg-light);
+            --border-color: var(--border-color-light);
+            --input-bg: var(--input-bg-light);
+            --input-border: var(--input-border-light);
+            --bg-overlay: var(--bg-overlay-light);
+
+            --section-padding: 80px 0;
+            --container-width: 1140px;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            --transition-speed: 0.3s ease;
+        }
+
+        /* Critical CSS */
+        body {
+            font-family: var(--font-secondary);
+            background: linear-gradient(135deg, var(--bg-color) 0%, color-mix(in srgb, var(--bg-color) 95%, black) 100%);
+            color: var(--text-color);
+            line-height: 1.7;
+            transition: background var(--transition-speed), color var(--transition-speed);
+            overflow-x: hidden;
+        }
+        .container { width: 90%; max-width: var(--container-width); margin: 0 auto; padding: 0 15px; }
+
+        /* Critical styles for LCP element (.nav-logo) */
+        .nav-logo {
+            font-family: var(--font-primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-accent);
+        }
+
+        /* Add other critical styles here based on above-the-fold content */
+    </style>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lato:wght@400;700&display=swap" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-mode">
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-left">
+                <a href="#home" class="nav-logo">techcentric.cc</a>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+                    <li class="nav-item"><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                    <li class="nav-item"><a href="#hobby" class="nav-link">Hobby</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                    <li class="nav-item"><a href="animations.html" class="nav-link text-gradient-anim">CSS Showcase</a></li>
+                    <!-- Mobile social links will be appended here by CSS/JS or just placed here and hidden on desktop -->
+                    <li class="nav-item mobile-social-links-container">
+                        <div class="mobile-social-links">
+                            <a href="https://www.linkedin.com/in/jonschoenb/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://github.com/thewalkinggeek" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <div class="nav-social-links"> <!-- These are for desktop -->
+                    <a href="https://www.linkedin.com/in/jonschoenb/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/thewalkinggeek" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                </div>
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
+                    <i class="fas fa-sun" style="display:none;"></i>
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="home">
+    <div class="hero-content container">
+        <img src="images/avatar-laptop.webp" alt="Avatar Laptop" loading="lazy" class="hero-avatar">
+        <h1 class="hero-title">
+            Hello, I'm <span class="highlight">Jonathan</span>.
+        </h1>
+        <p class="hero-subtitle" id="typing-subtitle">A <span id="typed-text"></span><span class="cursor">&nbsp;</span></p>
+            <div class="hero-cta">
+                <a href="#about" class="btn btn-primary">Learn More About Me</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+        <div class="hero-scroll-down">
+            <a href="#about" aria-label="Scroll to about section">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </header>
+
+    <main>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding section-with-bg">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image animate-on-scroll">
+                    <img src="images/c_picture.webp" alt="Jonathan M Schoenberger" loading="lazy" id="profile-pic">
+                </div>
+                <div class="about-text animate-on-scroll">
+                    <h2 class="section-title" style="text-align: left; margin-bottom: 20px;"><span class="section-title-text">Biography</span></h2>
+                    <p class="bio-headline tracking-expand-anim">Bridging People and Technology Together</p>
+                    <p>Jonathan Schoenberger is a technology specialist with 30 years of hands-on IT experience. He graduated with honors from Westwood College where he received an Associate Degree of Applied Science in Network Engineering.
+                    <p>Mr. Schoenberger spent over 20 years as an IT Consultant and Technician, servicing a wide range of technology needs to companies and clients. With his diverse knowledge base he has helped clients increase productivity, efficiency, and profitability through technology and service application.</p>
+                    <p>He is currently a Technical Client Support Specialist with The Storage Group, a digital marketing and SaaS company. There he provides technical and development support to clients and internal teams. In his personal time he is exploring the use of Large Language Models in development, project management, and problem solving.</p>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-down">
+            <a href="#skills" aria-label="Scroll to skills section">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section-padding section-with-bg">
+        <div class="container">
+            <h2 class="section-title text-focus-in-anim">Skills Summary</h2>
+            <h3 class="subsection-title animate-on-scroll">Soft Skills</h3>
+            <div class="skills-grid soft-skills-grid animate-on-scroll">
+                <div class="skill-card">
+                    <i class="fas fa-users skill-icon"></i>
+                    <h4>Interpersonal</h4>
+                    <p>A positive communicator who prides myself on being empathetic and capable of building rapport with a wide range of personalities.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-comments skill-icon"></i>
+                    <h4>Customer Service</h4>
+                    <p>A strong past work history of providing excellent customer service leading to increased sales, recognition, and customer reliance.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-chalkboard-teacher skill-icon"></i>
+                    <h4>Leadership</h4>
+                    <p>Organically fall into leadership roles by displaying ability to lead others in an efficient and productive manner to achieve multi-threaded goals.</p>
+                </div>
+            </div>
+
+            <h3 class="subsection-title animate-on-scroll" style="margin-top: 60px;">IT Skills</h3>
+            <div class="skills-grid it-skills-grid animate-on-scroll">
+                <div class="skill-card">
+                    <i class="fas fa-desktop skill-icon"></i>
+                    <h4>Hardware</h4>
+                    <p>30 years of expertise in x86 architecture, spanning enterprise-grade maintenance, hardware optimization, and the deployment of mission-critical server configurations.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-terminal skill-icon"></i>
+                    <h4>Operating Systems</h4>
+                    <p>Extensive experience in multiple OS environments. Distributions include: Windows Server, Windows Pro/Home, macOS, Slackware, Debian, Ubuntu, UNIX/BSD, Android, and iOS.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-network-wired skill-icon"></i>
+                    <h4>Networking</h4>
+                    <p>Expertise in full-stack networking, leveraging the OSI Model to architect resilient, high-availability systems. Proficient in 802.11x wireless standards and cloud infrastructure design. </p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-server skill-icon"></i>
+                    <h4>Services</h4>
+                    <p>Experience with installing and configuring a wide range of services including: HTTP, PHP, MySQL, DNS, DHCP, Mail, FTP, SSH, RDP, VPN, and NAS.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-code skill-icon"></i>
+                    <h4>Development and AI</h4>
+                    <p>Experience with HTML, CSS, PHP, Python, Next.js, Node.js, Lua, and AutoIt. AI tech stacks include ChatGPT, Gemini, Claude, Grok, and Llama. <strong>Preferred: Gemini CLI</strong></p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-shield-alt skill-icon"></i>
+                    <h4>Security</h4>
+                    <p>Experience with attack surface reduction and vulnerability assessment. Proven track record in auditing proprietary software and hardening infrastructure to proactively mitigate threats.</p>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-down">
+            <a href="#portfolio" aria-label="Scroll to portfolio section">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section-padding section-with-bg">
+        <div class="container">
+            <h2 class="section-title text-focus-in-anim">Work Portfolio</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-card animate-on-scroll">
+                    <div class="portfolio-icon-placeholder"><i class="fas fa-globe"></i></div>
+                    <h3>The Storage Group</h3>
+                    <p>Provide client and company-wide technical support solutions to increase throughput amd efficiency. UX design and backend tool development.</p>
+                </div>
+
+                <div class="portfolio-card animate-on-scroll">
+                    <div class="portfolio-icon-placeholder"><i class="fas fa-briefcase"></i></div>
+                    <h3>Method</h3>
+                    <p>Developed private server FiveM mods for GTAV using Lua and QBCore. Provided mod support through Discord and online forum moderation.</p>
+                </div>
+                <div class="portfolio-card animate-on-scroll">
+                     <div class="portfolio-icon-placeholder"><i class="fas fa-recycle"></i></div>
+                    <h3>Regency Technologies</h3>
+                    <p>Diagnosed hardware for refurbishment or e-waste recycling. Trained employees on RIOS standards for proper diagnostics and disassembly.</p>
+                </div>
+                <div class="portfolio-card animate-on-scroll">
+                    <div class="portfolio-icon-placeholder"><i class="fas fa-industry"></i></div>
+                    <h3>Guardian Industries</h3>
+                    <p>Hardware maintenance and software rollovers through custom network scripting. Audited proprietary software and developed access control software for IPCs.</p>
+                </div>
+                <div class="portfolio-card animate-on-scroll">
+                    <div class="portfolio-icon-placeholder"><i class="fab fa-xing"></i></div>
+                    <h3>Xenforo</h3>
+                    <p>Discovered a XSS vulnerability that circumvented login access, allowing an attacker to effectively clone accounts and post as other authorized users.</p>
+                </div>
+                <div class="portfolio-card animate-on-scroll">
+                    <div class="portfolio-icon-placeholder"><i class="fas fa-wifi"></i></div>
+                    <h3>Linksys</h3>
+                    <p>Discovered a Denial of Service vulnerability on routers using null GET requests that froze firmware and forced manual reboot of hardware.</p>
+                </div>
+                <div class="portfolio-card animate-on-scroll">
+                    <div class="portfolio-icon-placeholder"><i class="fas fa-envelope-open-text"></i></div>
+                    <h3>Acuren/US Inspections</h3>
+                    <p>Built a Slackware-based custom mail server which included a standalone webmail frontend using SquirrelMail for company-wide email.</p>
+                </div>
+                 <div class="portfolio-card animate-on-scroll">
+                    <div class="portfolio-icon-placeholder"><i class="fas fa-cogs"></i></div>
+                    <h3>ChicagoAreaNet</h3>
+                    <p>Helped develop embedded system firmware for hardware deployment. Converted services to linux-based solutions to cut operating costs.</p>
+                </div>
+                <div class="portfolio-card animate-on-scroll">
+                    <div class="portfolio-icon-placeholder"><i class="fas fa-store"></i></div>
+                    <h3>Home Depot</h3>
+                    <p>Discovered an internal explorer shell vulnerability on user facing systems that granted full user permissions and Intranet access.</p>
+                </div>
+                <div class="portfolio-card animate-on-scroll">
+                    <div class="portfolio-icon-placeholder"><i class="fas fa-tools"></i></div>
+                    <h3>Schmidt Machinery</h3>
+                    <p>Troubleshooting, maintenance, and installation of hardware infrastructure. Performed wireless integration into existing on-site local area network.</p>
+                </div>
+                <div class="portfolio-card animate-on-scroll">
+                    <div class="portfolio-icon-placeholder"><i class="fas fa-key"></i></div>
+                    <h3>Boson</h3>
+                    <p>Discovered a memory leak vulnerability that allowed an user to circumvent copy right protection and reveal functioning keys on all major software.</p>
+                </div>
+                <div class="portfolio-card animate-on-scroll">
+                    <div class="portfolio-icon-placeholder"><i class="fas fa-users-cog"></i></div>
+                    <h3>Rubi-Con</h3>
+                    <p>Guest speaker on the subjects of passive network attacks and distributed network intrusion detection systems. Configured a secure PPTP network for demonstration.</p>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-down">
+            <a href="#hobby" aria-label="Scroll to hobby section">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Hobby Section -->
+    <section id="hobby" class="section-padding section-with-bg">
+            <div class="container">
+                <h2 class="section-title text-focus-in-anim">Personal Hobbies</h2>
+                <div class="hobby-info-grid">
+                    <div class="hobby-card animate-on-scroll">
+                        <i class="fas fa-brain hobby-icon"></i>
+                        <h3>Artificial Intelligence</h3>
+                        <p>Exploring the frontiers of LLMs and generative AI. I focus on integrating AI APIs into full-stack applications and optimizing Retrieval-Augmented Generation (RAG) workflows.</p>
+                        <p>My interest lies in bridging the gap between raw model capabilities and practical, high-performance user tools.</p>
+                    </div>
+                    <div class="hobby-card animate-on-scroll">
+                        <i class="fas fa-broadcast-tower hobby-icon"></i>
+                        <h3>Amateur Radio & SDR</h3>
+                        <p>Experimenting with Software Defined Radio (SDR) and long-range mesh networking. I build and optimize local LoRa nodes and Meshtastic base stations for resilient communication.</p>
+                        <p>I enjoy the challenge of hardware-level networking and RF exploration. Currently licenced for GMRS Radio.</p>
+                    </div>
+                    <div class="hobby-card animate-on-scroll">
+                        <i class="fas fa-cube hobby-icon"></i>
+                        <h3>Additive Manufacturing</h3>
+                        <p>Interested in functional 3D printing with high-performance filaments like PETG, ASA, and TPU. I maintain a fully enclosed CoreXY system for projects.</p>
+                        <p>I focus on custom hardware modifications and rapid prototyping for microcontrollers and embedded systems.</p>
+                    </div>
+                </div>
+                <div class="animate-on-scroll" style="padding: 40px; margin: 40px auto 0 auto; width: fit-content; display: flex; justify-content: center; align-items: center;">
+                    <a href="https://github.com/thewalkinggeek/MNEMOS-OS" target="_blank" rel="noopener noreferrer">
+                        <img src="images/mnemos-os-dark.png" alt="MNEMOS-OS Project" style="width: 50%; height: auto; display: block; margin: 0 auto;">
+                    </a>
+                </div>
+            </div>
+            <div class="hero-scroll-down">
+                <a href="#contact" aria-label="Scroll to contact section">
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+            </div>
+        </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding section-with-bg">
+        <div class="container">
+            <h2 class="section-title text-focus-in-anim">Let's Connect</h2>
+            <p class="text-center contact-subtitle animate-on-scroll">
+                Fill out the form below or connect via LinkedIn.
+            </p>
+            <div class="contact-content">
+                <form id="contact-form" class="contact-form animate-on-scroll" action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="313db8b6-0b09-4b7a-af15-56bfa3352bf9">
+                    <input type="hidden" name="subject" value="New Contact from techcentric.cc Portfolio (Jon Schoenberger)">
+                    <input type="checkbox" name="botcheck" id="botcheck" style="display: none;">
+
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject-field">Subject (Optional)</label>
+                        <input type="text" id="subject-field" name="message_subject" placeholder="Regarding...">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="6" placeholder="Your message here..." required></textarea>
+                    </div>
+                    <div class="form-group form-group-captcha">
+                        <input type="checkbox" id="human-check" name="human_check" required>
+                        <label for="human-check" class="human-check-label">I am human and not a robot.</label>
+                    </div>
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn btn-primary btn-lg">Send Message <i class="fas fa-paper-plane"></i></button>
+                    </div>
+                    <div id="form-status" class="form-status"></div>
+                </form>
+                <div class="contact-alternatives animate-on-scroll">
+                    <p>Alternatively, you can reach out directly:</p>
+                    <a href="https://www.linkedin.com/in/jonschoenb/" target="_blank" class="btn btn-secondary"><i class="fab fa-linkedin"></i> Connect on LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> Jonathan Schoenberger | techcentric.cc </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

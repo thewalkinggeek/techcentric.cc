@@ -1,0 +1,2563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CSS Animation Effects Showcase</title>
+  <meta name="description" content="A showcase of CSS-only animation effects, including entrance, exit, hover, and text animations, with customizable controls and copy-paste code snippets.">
+  <link rel="canonical" href="https://www.techcentric.cc/animations.html" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.techcentric.cc/animations.html">
+  <meta property="og:title" content="CSS Animation Effects Showcase">
+  <meta property="og:description" content="A showcase of CSS-only animation effects, including entrance, exit, hover, and text animations, with customizable controls and copy-paste code snippets.">
+  <meta property="og:image" content="https://www.techcentric.cc/assets/css-animations-og-image.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://www.techcentric.cc/animations.html">
+  <meta property="twitter:title" content="CSS Animation Effects Showcase">
+  <meta property="twitter:description" content="A showcase of CSS-only animation effects, including entrance, exit, hover, and text animations, with customizable controls and copy-paste code snippets.">
+  <meta property="twitter:image" content="https://www.techcentric.cc/assets/css-animations-og-image.png">
+
+  <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.css" rel="stylesheet" />
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    :root {
+      --body-bg: #f9f9f9;
+      --text-color: #212529;
+      --h1-color: #212529;
+      --h2-color: #343a40;
+      --h3-color: #495057;
+      --demo-section-bg: #fff;
+      --demo-section-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      --animation-box-bg: #2980b9;
+      --code-container-bg: #f5f2f0;
+      --code-text-color: black;
+      --copy-btn-bg: #333;
+      --copy-btn-text: #fff;
+      --copy-btn-hover-bg: #555;
+      --replay-btn-bg: #2e7d32;
+      --replay-btn-text: white;
+      --replay-btn-hover-bg: #1b5e20;
+      --border-color: #888;
+      --scroll-container-bg: #f0f0f0;
+      --toggle-btn-bg: #fff;
+      --toggle-btn-border: #888;
+      --toggle-btn-hover-bg: #f0f0f0;
+      --guide-bg: #e0eafc;
+      --guide-border: #c3d4f0;
+      --guide-code-bg: #d4dff7;
+      --footer-text-color: #444;
+      --input-bg: #fff;
+      --input-border: #888;
+      --input-color-bg: #eee;
+      --header-bar-bg: var(--body-bg);
+      --header-bar-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      --header-bar-border: var(--border-color);
+
+      --anim-color-from: #d32f2f;
+      --anim-color-to: #1976d2;
+      --dynamic-anim-duration: 1s;
+
+      /* ACCESSIBILITY FIX: WCAG AA compliant high-contrast PrismJS theme for light mode */
+      --prism-comment: #555;
+      --prism-punctuation: #333;
+      --prism-tag: #b71c1c;
+      --prism-attr-name: #6d4c41;
+      --prism-attr-value: #0d47a1;
+      --prism-string: #1b5e20;
+      --prism-keyword: #7b1fa2;
+      --prism-function: #1565c0;
+      --prism-selector: #2e7d32;
+      --prism-property: #0d47a1;
+      --prism-operator: #bf360c;
+      --prism-important-variable: #9e6d00;
+    }
+
+    body.dark-mode {
+      --body-bg: #121212;
+      --text-color: #f8f9fa;
+      --h1-color: #f8f9fa;
+      --h2-color: #e9ecef;
+      --h3-color: #dee2e6;
+      --demo-section-bg: #1e1e1e;
+      --demo-section-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      --animation-box-bg: #3498db;
+      --code-container-bg: #282c34;
+      --code-text-color: #abb2bf;
+      --copy-btn-bg: #444;
+      --copy-btn-text: #f8f9fa;
+      --copy-btn-hover-bg: #666;
+      --replay-btn-bg: #388e3c;
+      --replay-btn-text: #f8f9fa;
+      --replay-btn-hover-bg: #2e7d32;
+      --border-color: #767676;
+      --scroll-container-bg: #2c2c2c;
+      --toggle-btn-bg: #2c2c2c;
+      --toggle-btn-border: #767676;
+      --toggle-btn-hover-bg: #3d3d3d;
+      --guide-bg: #1a2634;
+      --guide-border: #3a4d61;
+      --guide-code-bg: #243447;
+      --footer-text-color: #bdc3c7;
+      --input-bg: #2c2c2c;
+      --input-border: #767676;
+      --input-color-bg: #444;
+      --header-bar-bg: var(--body-bg);
+      --header-bar-shadow: 0 2px 8px rgba(0,0,0,0.6);
+      --header-bar-border: var(--border-color);
+
+      /* ACCESSIBILITY FIX: Atom One Dark inspired high-contrast theme */
+      --prism-comment: #9da5b4;
+      --prism-punctuation: #abb2bf;
+      --prism-tag: #e06c75;
+      --prism-attr-name: #d19a66;
+      --prism-attr-value: #98c379;
+      --prism-string: #98c379;
+      --prism-keyword: #c678dd;
+      --prism-function: #61afef;
+      --prism-selector: #d19a66;
+      --prism-property: #d19a66;
+      --prism-operator: #56b6c2;
+      --prism-important-variable: #e5c07b;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    html, body {
+        overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      padding-top: 80px;
+      background: var(--body-bg);
+      color: var(--text-color);
+      transition: background-color 0.3s ease, color 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      box-sizing: border-box;
+      line-height: 1.5;
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--h1-color);
+      margin-bottom: 20px;
+      margin-top: 10px;
+      font-size: 2.2em;
+      font-weight: 700;
+    }
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+    }
+    h2 {
+        color: var(--h2-color);
+        margin-top: 0;
+        margin-bottom: 15px;
+        font-weight: 600;
+    }
+
+    header.fixed-header-controls {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      padding: 12px 20px;
+      background-color: var(--header-bar-bg);
+      box-shadow: var(--header-bar-shadow);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 60px;
+      border-bottom: 1px solid var(--header-bar-border);
+      transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, height 0.2s ease-out;
+      gap: 15px;
+      box-sizing: border-box;
+    }
+
+    .header-left-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    #theme-toggle, #view-toggle {
+      padding: 8px 16px;
+      font-size: 0.95em;
+      font-weight: 500;
+      cursor: pointer;
+      background-color: var(--toggle-btn-bg);
+      color: var(--text-color);
+      border: 2px solid var(--toggle-btn-border);
+      border-radius: 24px;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+    }
+    #theme-toggle i, #view-toggle i {
+        margin-right: 8px;
+    }
+
+    #theme-toggle:hover, #view-toggle:hover,
+    #theme-toggle:focus-visible, #view-toggle:focus-visible {
+      background-color: var(--toggle-btn-hover-bg);
+      border-color: var(--animation-box-bg);
+      outline: none;
+    }
+    #theme-toggle:focus-visible, #view-toggle:focus-visible {
+        box-shadow: 0 0 0 3px color-mix(in srgb, var(--animation-box-bg) 50%, transparent);
+    }
+
+    #animation-search {
+      padding: 10px 16px;
+      font-size: 1em;
+      background-color: var(--input-bg);
+      color: var(--text-color);
+      border: 2px solid var(--input-border);
+      border-radius: 24px;
+      transition: all 0.2s ease;
+      width: 280px;
+      flex-shrink: 0;
+    }
+    #animation-search::placeholder {
+        color: var(--text-color);
+        opacity: 0.65;
+    }
+    #animation-search:focus {
+      outline: none;
+      border-color: var(--animation-box-bg);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--animation-box-bg) 30%, transparent);
+    }
+
+    .header-right-actions {
+      flex-shrink: 0;
+    }
+
+    #home-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      padding: 8px;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      border: 2px solid transparent;
+    }
+    #home-link:hover {
+        background-color: var(--toggle-btn-hover-bg);
+        transform: translateY(-1px);
+    }
+    #home-link:focus-visible {
+        outline: none;
+        border-color: var(--animation-box-bg);
+        background-color: var(--toggle-btn-hover-bg);
+    }
+
+    .home-link-text {
+      font-size: 0.95em;
+      font-weight: 500;
+      color: var(--text-color);
+      transition: color 0.3s ease;
+    }
+    #home-link:hover .home-link-text,
+    #home-link:focus-visible .home-link-text {
+      color: var(--animation-box-bg);
+    }
+
+    .animated-arrow {
+      font-size: 1.2em;
+      color: var(--text-color);
+      transition: color 0.3s ease, transform 0.2s ease;
+      animation: pointToHome 1.5s ease-in-out infinite;
+    }
+    #home-link:hover .animated-arrow,
+    #home-link:focus-visible .animated-arrow {
+      color: var(--animation-box-bg);
+    }
+
+    .home-icon {
+      font-size: 1.8em;
+      color: var(--text-color);
+      transition: color 0.3s ease, transform 0.2s ease;
+    }
+    #home-link:hover .home-icon,
+    #home-link:focus-visible .home-icon {
+        color: var(--animation-box-bg);
+        transform: scale(1.1);
+    }
+
+    @keyframes pointToHome {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(5px); }
+    }
+
+    @media (max-width: 768px) {
+      header.fixed-header-controls {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 6px 10px;
+        min-height: 48px;
+        gap: 8px;
+      }
+
+      .header-left-actions { gap: 6px; }
+
+      #theme-toggle, #view-toggle {
+        font-size: 0; padding: 0; width: 36px; height: 36px;
+        border: none; background-color: transparent; border-radius: 4px; color: var(--text-color);
+      }
+      #theme-toggle i, #view-toggle i {
+          font-size: 1.2rem; margin-right: 0; line-height: 1;
+      }
+      .button-text-desktop { display: none; }
+      #theme-toggle:hover, #view-toggle:hover {
+          background-color: var(--toggle-btn-hover-bg);
+      }
+
+      #animation-search {
+        flex-grow: 1; flex-shrink: 1; width: auto; min-width: 60px;
+        height: 36px; padding: 6px 10px; font-size: 0.85em;
+      }
+
+      #home-link:hover { background-color: transparent; transform: none; }
+      .home-icon { font-size: 1.6em; padding: 4px; }
+      .home-icon:hover { transform: scale(1.1); }
+      .home-link-text, .animated-arrow { display: none; }
+    }
+
+    @media (max-width: 420px) {
+        header.fixed-header-controls { gap: 5px; }
+        .header-left-actions { gap: 4px; }
+        #theme-toggle, #view-toggle { width: 32px; height: 32px; }
+        #theme-toggle i, #view-toggle i { font-size: 1.1rem; }
+        #animation-search { min-width: 50px; height: 32px; font-size: 0.8em; }
+        .home-icon { font-size: 1.5em; }
+    }
+
+    .main-section-heading {
+        text-align: center;
+        font-size: 1.8em;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 10px;
+        color: var(--h2-color);
+        grid-column: 1 / -1;
+    }
+    #no-results-message {
+      color: var(--text-color);
+      transition: color 0.3s ease;
+      text-align: center;
+      margin: 20px 0;
+      font-size: 1.2em;
+      display: none;
+    }
+    .implementation-guide {
+      background-color: var(--guide-bg);
+      border: 1px solid var(--guide-border);
+      padding: 15px 20px;
+      border-radius: 8px;
+      margin: 0 auto 30px auto;
+      max-width: 800px;
+      font-size: 0.95em;
+      line-height: 1.6;
+      transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    }
+    .implementation-guide h2 {
+        color: var(--h2-color);
+        margin-top: 0;
+        margin-bottom: 15px;
+        text-align: left;
+        border-bottom: none;
+        font-size: 1.5em;
+    }
+    .implementation-guide h3 {
+        color: var(--h3-color);
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-size: 1.2em;
+    }
+    .implementation-guide ul {
+      margin-top: 0;
+      margin-bottom: 10px;
+      padding-left: 20px;
+    }
+    .implementation-guide ul ul {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    .implementation-guide pre, .implementation-guide code:not(pre code) {
+        background-color: var(--guide-code-bg) !important;
+        color: var(--text-color) !important;
+        padding: 2px 5px;
+        border-radius: 4px;
+        font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+        font-size: 0.9em;
+    }
+    .implementation-guide pre {
+        padding: 10px 15px;
+        overflow-x: auto;
+        margin: 10px 0 15px 0;
+        border: 1px solid var(--guide-border);
+        border-radius: 5px;
+    }
+    .implementation-guide pre code {
+        padding: 0;
+        background-color: transparent !important;
+        border: none;
+        font-size: 1em;
+        color: inherit !important;
+    }
+    .implementation-guide p {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+    .implementation-guide ol {
+      margin-top: 0;
+      padding-left: 20px;
+      margin-bottom: 10px;
+    }
+     .implementation-guide li {
+      margin-bottom: 8px;
+    }
+    .demo-section {
+      margin: 40px 0;
+      padding: 20px;
+      background: var(--demo-section-bg);
+      border-radius: 8px;
+      box-shadow: var(--demo-section-shadow);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .demo-section.hidden-by-search {
+        display: none !important;
+    }
+    .animation-box, .text-demo, .text-reveal-wrapper {
+      margin: 20px auto;
+      width: fit-content;
+    }
+    .animation-box {
+      width: 100px;
+      height: 100px;
+      background: var(--animation-box-bg);
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+      --anim-color-from: red;
+      --anim-color-to: blue;
+      transform: perspective(800px) rotateX(0) rotateY(0);
+    }
+    .text-demo {
+      font-size: 1.5em;
+    }
+    .text-reveal-wrapper {
+      display: inline-block;
+      overflow: hidden;
+      line-height: 1.2em;
+    }
+    .text-reveal-wrapper .text-demo {
+        margin: 0;
+    }
+
+    .controls-container {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin-bottom: 15px;
+        flex-wrap: wrap;
+    }
+    .controls-container label {
+        font-size: 0.9em;
+        margin-right: 5px;
+    }
+    .controls-container select,
+    .controls-container input[type="range"],
+    .controls-container input[type="color"] {
+        padding: 6px 8px;
+        border-radius: 4px;
+        border: 1px solid var(--input-border);
+        background-color: var(--input-bg);
+        color: var(--text-color);
+        font-size: 0.9em;
+    }
+    .controls-container input[type="color"] {
+        padding: 2px;
+        height: 30px;
+        min-width: 40px;
+        background-color: var(--input-color-bg);
+    }
+    .controls-container input[type="range"] {
+        flex-grow: 1;
+        min-width: 100px;
+    }
+    .duration-value {
+        font-size: 0.9em;
+        min-width: 35px;
+        text-align: right;
+    }
+    .code-container {
+      position: relative;
+      margin-top: 10px;
+      background: var(--code-container-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 5px;
+      overflow: hidden;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+      padding-top: 35px;
+      min-height: 180px;
+      display: flex;
+      flex-direction: column;
+    }
+    .code-display-block { display: none; flex-grow: 1; overflow: auto; }
+    .code-display-block.active { display: flex; flex-direction: column; }
+
+    .code-container pre {
+        margin: 0;
+        background: transparent !important;
+        overflow-x: auto;
+        flex-grow: 1;
+        height: 100%;
+    }
+    .code-container pre code {
+        color: var(--code-text-color) !important;
+        text-shadow: none !important;
+        white-space: pre-wrap;
+        word-break: break-all;
+    }
+
+    .token.comment, .token.prolog, .token.doctype, .token.cdata { color: var(--prism-comment); }
+    .token.punctuation { color: var(--prism-punctuation); }
+    .token.tag, .token.boolean, .token.number, .token.constant, .token.symbol, .token.deleted { color: var(--prism-tag); }
+    .token.attr-name { color: var(--prism-attr-name); }
+    .token.attr-value, .token.string, .token.char, .token.builtin, .token.inserted { color: var(--prism-attr-value); }
+    .token.keyword { color: var(--prism-keyword); }
+    .token.function, .token.class-name { color: var(--prism-function); }
+    .token.selector { color: var(--prism-selector); }
+    .token.property { color: var(--prism-property); }
+    .token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string { color: var(--prism-operator); }
+    .token.important, .token.regex, .token.variable { color: var(--prism-important-variable); }
+
+    .copy-btn {
+      position: absolute;
+      top: 5px;
+      left: 10px;
+      padding: 5px 10px;
+      font-size: 0.9em;
+      cursor: pointer;
+      background-color: var(--copy-btn-bg);
+      color: var(--copy-btn-text);
+      border: none;
+      border-radius: 5px;
+      transition: background-color 0.2s ease;
+    }
+    .copy-btn:hover {
+      background-color: var(--copy-btn-hover-bg);
+    }
+    .replay-btn {
+      display: inline-block;
+      margin: 0 0 0 10px;
+      padding: 8px 15px;
+      cursor: pointer;
+      background-color: var(--replay-btn-bg);
+      color: var(--replay-btn-text);
+      border: none;
+      border-radius: 4px;
+      transition: background-color 0.2s ease;
+      max-width: 120px;
+    }
+    .replay-btn:hover {
+      background-color: var(--replay-btn-hover-bg);
+    }
+
+    .marquee-container, .ticker-container {
+      width: 90%;
+      max-width: 500px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      margin: 20px auto;
+      background: var(--scroll-container-bg);
+      padding: 5px 0;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+    .ticker-container {
+      height: 100px;
+    }
+    .marquee-text {
+      display: inline-block;
+      white-space: nowrap;
+      padding-left: 100%;
+    }
+    .ticker-text div {
+      padding: 5px;
+    }
+
+    body.grid-view-active #animation-showcase-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 20px;
+    }
+    body.grid-view-active .demo-section {
+      margin: 0;
+    }
+    body.grid-view-active .demo-section.hidden-by-search {
+        display: none !important;
+    }
+
+    main { flex-grow: 1; }
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: var(--footer-text-color);
+      transition: color 0.3s ease;
+    }
+
+    /* Keyframes */
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideInLeft { from { transform: translateX(-100%); opacity: 0;} to { transform: translateX(0); opacity: 1;} }
+    @keyframes slideInRight { from { transform: translateX(100%); opacity: 0;} to { transform: translateX(0); opacity: 1;} }
+    @keyframes slideInUp { from { transform: translate3d(0, 100%, 0); opacity: 0; } to { transform: translate3d(0, 0, 0); opacity: 1; } }
+    @keyframes slideInDown { from { transform: translate3d(0, -100%, 0); opacity: 0; } to { transform: translate3d(0, 0, 0); opacity: 1; } }
+
+    @keyframes slideOutLeft { from { transform: translate3d(0,0,0); opacity: 1; } to { transform: translate3d(-100%, 0, 0); opacity: 0; } }
+    @keyframes slideOutRight { from { transform: translateX(0); opacity: 1; } to { transform: translateX(100%); opacity: 0; } }
+    @keyframes slideOutUp { from { transform: translate3d(0, 0, 0); opacity: 1; } to { visibility: hidden; transform: translate3d(0, -100%, 0); opacity: 0; } }
+    @keyframes slideOutDown { from { transform: translate3d(0,0,0); opacity: 1; } to { transform: translate3d(0, 100%, 0); opacity: 0; } }
+
+    @keyframes bounceInDown { from, 60%, 75%, 90%, to { animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); } 0% { opacity: 0; transform: translate3d(0, -3000px, 0) scaleY(3); } 60% { opacity: 1; transform: translate3d(0, 25px, 0) scaleY(0.9); } 75% { transform: translate3d(0, -10px, 0) scaleY(0.95); } 90% { transform: translate3d(0, 5px, 0) scaleY(0.985); } to { transform: translate3d(0, 0, 0); opacity: 1; } }
+    @keyframes bounceInUp { from, 60%, 75%, 90%, to { animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); } 0% { opacity: 0; transform: translate3d(0, 3000px, 0) scaleY(5); } 60% { opacity: 1; transform: translate3d(0, -20px, 0) scaleY(0.9); } 75% { transform: translate3d(0, 10px, 0) scaleY(0.95); } 90% { transform: translate3d(0, -5px, 0) scaleY(0.985); } to { transform: translate3d(0, 0, 0); opacity: 1;} }
+    @keyframes bounceInLeft { from, 60%, 75%, 90%, to { animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); } 0% { opacity: 0; transform: translate3d(-3000px, 0, 0) scaleX(3); } 60% { opacity: 1; transform: translate3d(25px, 0, 0) scaleX(1); } 75% { transform: translate3d(-10px, 0, 0) scaleX(0.98); } 90% { transform: translate3d(5px, 0, 0) scaleX(0.995); } to { transform: translate3d(0, 0, 0); opacity: 1; } }
+    @keyframes bounceInRight { from, 60%, 75%, 90%, to { animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); } 0% { opacity: 0; transform: translate3d(3000px, 0, 0) scaleX(3); } 60% { opacity: 1; transform: translate3d(-25px, 0, 0) scaleX(1); } 75% { transform: translate3d(10px, 0, 0) scaleX(0.98); } 90% { transform: translate3d(-5px, 0, 0) scaleX(0.995); } to { transform: translate3d(0, 0, 0); opacity: 1; } }
+
+    @keyframes flipInX { from { transform: perspective(800px) rotate3d(1, 0, 0, 90deg); animation-timing-function: ease-in; opacity: 0; } 40% { transform: perspective(800px) rotate3d(1, 0, 0, -20deg); animation-timing-function: ease-in; } 60% { transform: perspective(800px) rotate3d(1, 0, 0, 10deg); opacity: 1; } 80% { transform: perspective(800px) rotate3d(1, 0, 0, -5deg); } to { transform: perspective(800px) rotateX(0); opacity: 1; } }
+    @keyframes flipInY { from { transform: perspective(800px) rotate3d(0, 1, 0, 90deg); animation-timing-function: ease-in; opacity: 0; } 40% { transform: perspective(800px) rotate3d(0, 1, 0, -20deg); animation-timing-function: ease-in; } 60% { transform: perspective(800px) rotate3d(0, 1, 0, 10deg); opacity: 1; } 80% { transform: perspective(800px) rotate3d(0, 1, 0, -5deg); } to { transform: perspective(800px) rotateY(0); opacity: 1; } }
+    @keyframes flipOutX { from { transform: perspective(800px) rotateX(0); opacity: 1; } 30% { transform: perspective(800px) rotate3d(1, 0, 0, -20deg); opacity: 1; } to { transform: perspective(800px) rotate3d(1, 0, 0, 90deg); opacity: 0; } }
+    @keyframes flipOutY { from { transform: perspective(800px) rotateY(0); opacity: 1; } 30% { transform: perspective(800px) rotate3d(0, 1, 0, -15deg); opacity: 1; } to { transform: perspective(800px) rotate3d(0, 1, 0, 90deg); opacity: 0; } }
+
+    /* Flip Hover Keyframes */
+    @keyframes flipHoverUp {
+      0% { transform: perspective(800px) rotateX(0deg); }
+      100% { transform: perspective(800px) rotateX(-180deg); }
+    }
+    @keyframes flipHoverDown {
+      0% { transform: perspective(800px) rotateX(0deg); }
+      100% { transform: perspective(800px) rotateX(180deg); }
+    }
+    @keyframes flipHoverLeft {
+      0% { transform: perspective(800px) rotateY(0deg); }
+      100% { transform: perspective(800px) rotateY(-180deg); }
+    }
+    @keyframes flipHoverRight {
+      0% { transform: perspective(800px) rotateY(0deg); }
+      100% { transform: perspective(800px) rotateY(180deg); }
+    }
+
+    @keyframes lightSpeedInRight { from { transform: translate3d(100%, 0, 0) skewX(-30deg); opacity: 0; } 60% { transform: skewX(20deg); opacity: 1; } 80% { transform: skewX(-5deg); } to { transform: translate3d(0, 0, 0); opacity: 1; } }
+    @keyframes lightSpeedInLeft { from { transform: translate3d(-100%, 0, 0) skewX(30deg); opacity: 0; } 60% { transform: skewX(-20deg); opacity: 1; } 80% { transform: skewX(5deg); } to { transform: translate3d(0, 0, 0); opacity: 1; } }
+    @keyframes lightSpeedOutLeft { from { opacity: 1; } to { transform: translate3d(-100%, 0, 0) skewX(-30deg); opacity: 0; } }
+    @keyframes lightSpeedOutRight { from { opacity: 1; } to { transform: translate3d(100%, 0, 0) skewX(30deg); opacity: 0; } }
+
+    @keyframes zoomInCenter { from { transform: scale(0.5); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    @keyframes zoomInUp { from { opacity: 0; transform: scale3d(0.1, 0.1, 0.1) translate3d(0, 1000px, 0); animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19); } 60% { opacity: 1; transform: scale3d(0.475, 0.475, 0.475) translate3d(0, -60px, 0); animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1); } to { opacity: 1; transform: scale3d(1, 1, 1) translate3d(0,0,0); } }
+    @keyframes zoomInDown { from { opacity: 0; transform: scale3d(0.1, 0.1, 0.1) translate3d(0, -1000px, 0); animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19); } 60% { opacity: 1; transform: scale3d(0.475, 0.475, 0.475) translate3d(0, 60px, 0); animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1); } to { opacity: 1; transform: scale3d(1, 1, 1) translate3d(0,0,0); } }
+    @keyframes zoomOutCenter { from { opacity: 1; transform: scale3d(1, 1, 1); } 50% { opacity: 0; transform: scale3d(.3, .3, .3); } to { opacity: 0; transform: scale3d(.3, .3, .3); } }
+
+    @keyframes fadeOutCenter { from { opacity: 1; } to { opacity: 0; } }
+    @keyframes fadeOutDown { from { opacity: 1; } to { opacity: 0; transform: translate3d(0, 100%, 0); } }
+    @keyframes fadeOutUp { from { opacity: 1; } to { opacity: 0; transform: translate3d(0, -100%, 0); } }
+    @keyframes fadeOutLeft { from { opacity: 1; } to { opacity: 0; transform: translate3d(-100%, 0, 0); } }
+    @keyframes fadeOutRight { from { opacity: 1; } to { opacity: 0; transform: translate3d(100%, 0, 0); } }
+
+    @keyframes fadeInOut { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
+    @keyframes rotateClockwise { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @keyframes rotateCounterClockwise { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+    @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+    @keyframes colorChange { from { background-color: var(--anim-color-from); } to { background-color: var(--anim-color-to); } }
+    @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
+    @keyframes swing { 20% { transform: rotate3d(0, 0, 1, 15deg); } 40% { transform: rotate3d(0, 0, 1, -10deg); } 60% { transform: rotate3d(0, 0, 1, 5deg); } 80% { transform: rotate3d(0, 0, 1, -5deg); } 100% { transform: rotate3d(0, 0, 1, 0deg); } }
+    @keyframes rollIn { from { opacity: 0; transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg); } to { opacity: 1; transform: translate3d(0, 0, 0); } }
+    @keyframes hinge { 0% { transform-origin: top left; animation-timing-function: ease-in-out; opacity: 1; } 20%, 60% { transform: rotate3d(0, 0, 1, 80deg); transform-origin: top left; animation-timing-function: ease-in-out; } 40%, 80% { transform: rotate3d(0, 0, 1, 60deg); transform-origin: top left; animation-timing-function: ease-in-out; opacity: 1; } to { transform: translate3d(0, 700px, 0); opacity: 0; } }
+    @keyframes jackInTheBox { from { opacity: 0; transform: scale(0.1) rotate(30deg); transform-origin: center bottom; } 50% { transform: rotate(-10deg); } 70% { transform: rotate(3deg); } to { opacity: 1; transform: scale(1); } }
+    @keyframes tada { from {transform: scale3d(1, 1, 1);} 10%, 20% {transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);} 30%, 50%, 70%, 90% {transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);} 40%, 60%, 80% {transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);} to {transform: scale3d(1, 1, 1);} }
+    @keyframes wobble { from {transform: none;} 15% {transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);} 30% {transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);} 45% {transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);} 60% {transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);} 75% {transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);} to {transform: none;} }
+    @keyframes jello { from, 11.1%, to {transform: none;} 22.2% {transform: skewX(-12.5deg) skewY(-12.5deg);} 33.3% {transform: skewX(6.25deg) skewY(6.25deg);} 44.4% {transform: skewX(-3.125deg) skewY(-3.125deg);} 55.5% {transform: skewX(1.5625deg) skewY(1.5625deg);} 66.6% {transform: skewX(-0.78125deg) skewY(-0.78125deg);} 77.7% {transform: skewX(0.390625deg) skewY(0.390625deg);} 88.8% {transform: skewX(-0.1953125deg) skewY(-0.1953125deg);} }
+    @keyframes heartBeat { 0% {transform: scale(1);} 14% {transform: scale(1.3);} 28% {transform: scale(1);} 42% {transform: scale(1.3);} 70% {transform: scale(1);} }
+    @keyframes flash { from, 50%, to {opacity: 1;} 25%, 75% {opacity: 0;} }
+    @keyframes rubberBand { from {transform: scale3d(1, 1, 1);} 30% {transform: scale3d(1.25, 0.75, 1);} 40% {transform: scale3d(0.75, 1.25, 1);} 50% {transform: scale3d(1.15, 0.85, 1);} 65% {transform: scale3d(.95, 1.05, 1);} 75% {transform: scale3d(1.05, .95, 1);} to {transform: scale3d(1, 1, 1);} }
+    @keyframes headShake { 0% {transform: translateX(0);} 6.5% {transform: translateX(-6px) rotateY(-9deg);} 18.5% {transform: translateX(5px) rotateY(7deg);} 31.5% {transform: translateX(-3px) rotateY(-5deg);} 43.5% {transform: translateX(2px) rotateY(3deg);} 50% {transform: translateX(0);} }
+    @keyframes rotateIn { from { transform-origin: center; transform: rotate3d(0, 0, 1, -200deg); opacity: 0; } to { transform-origin: center; transform: translate3d(0, 0, 0); opacity: 1; } }
+    @keyframes rotateOutClockwise { from { opacity: 1; transform: rotate(0); } to { opacity: 0; transform: rotate(359deg); } }
+    @keyframes rotateOutCounterClockwise { from { opacity: 1; transform: rotate(0); } to { opacity: 0; transform: rotate(-359deg); } }
+    @keyframes jiggle { 0%, 100% { transform: translateX(0); } 10%, 50% { transform: translateX(-2px) rotate(-0.5deg); } 30%, 70% { transform: translateX(2px) rotate(0.5deg); } 90% { transform: translateX(0px) rotate(0deg); } }
+
+    @keyframes textFadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes typewriter { from { width: 0; } to { width: 100%; } }
+    @keyframes pulseTextColor { 0% { color: #3498db; } 50% { color: #e74c3c; } 100% { color: #3498db; } }
+    @keyframes textPopIn { from { opacity: 0; transform: scale(0.5); } to { opacity: 1; transform: scale(1); } }
+    @keyframes pulseTextShadow { 0% { text-shadow: 0 0 4px rgba(52, 152, 219, 0.5); } 50% { text-shadow: 0 0 10px rgba(52, 152, 219, 1); } 100% { text-shadow: 0 0 4px rgba(52, 152, 219, 0.5); } }
+    @keyframes textFocusIn { 0% { filter: blur(12px); opacity: 0; } 100% { filter: blur(0px); opacity: 1; } }
+    @keyframes trackingInExpand { 0% { letter-spacing: -0.5em; opacity: 0; } 40% { opacity: 0.6; } 100% { opacity: 1; } }
+    @keyframes textFlicker { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+    @keyframes shadowDropCenter { 0% { text-shadow: 0 0 0 rgba(0, 0, 0, 0); } 100% { text-shadow: 0 0 18px rgba(0, 0, 0, 0.35); } }
+    @keyframes marqueeScrollLeft { from { transform: translateX(0%); } to { transform: translateX(-100%); } }
+    @keyframes marqueeScrollRight { from { transform: translateX(-100%); } to { transform: translateX(0%); } }
+    @keyframes tickerScrollUp { from { transform: translateY(100%); } to { transform: translateY(-100%); } }
+    @keyframes tickerScrollDown { from { transform: translateY(-100%); } to { transform: translateY(100%); } }
+    @keyframes textBlurOut { 0% { filter: blur(0px); opacity: 1; } 100% { filter: blur(8px); opacity: 0; } }
+    @keyframes kenBurnsText { 0% { transform: scale(1) translateX(0) translateY(0); opacity: 0.8; } 25% { transform: scale(1.02) translateX(-2px) translateY(1px); opacity: 1; } 50% { transform: scale(1) translateX(1px) translateY(-1px); opacity: 0.8; } 75% { transform: scale(1.02) translateX(2px) translateY(2px); opacity: 1; } 100% { transform: scale(1) translateX(0) translateY(0); opacity: 0.8; } }
+    @keyframes textVibrate { 0% { transform: translate(0); } 20% { transform: translate(-1px, 1px); } 40% { transform: translate(-1px, -1px); } 60% { transform: translate(1px, 1px); } 80% { transform: translate(1px, -1px); } 100% { transform: translate(0); } }
+    @keyframes textSlideFocusIn { 0% { filter: blur(5px); transform: translateX(-30px); opacity: 0; } 100% { filter: blur(0px); transform: translateX(0); opacity: 1; } }
+    @keyframes textGradientAnimate { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+    @keyframes textRevealUp { from { transform: translateY(100%); } to { transform: translateY(0%); } }
+    @keyframes textRevealDown { from { transform: translateY(-100%); } to { transform: translateY(0%); } }
+
+
+    /* Applying animations (Class definitions) */
+    .slide-in-base-anim, .bounce-in-base-anim, .flip-in-base-anim,
+    .light-speed-in-base-anim, .zoom-in-base-anim, .fade-out-base-anim,
+    .slide-out-base-anim, .flip-out-base-anim, .light-speed-out-base-anim,
+    .zoom-out-base-anim, .rotate-in-base-anim, .roll-in-base-anim,
+    .jack-in-the-box-base-anim, .tada-base-anim, .wobble-base-anim,
+    .jello-base-anim, .flash-base-anim, .rubber-band-base-anim,
+    .head-shake-base-anim, .hinge-base-anim,
+    .text-fade-base-anim, .text-pop-base-anim, .text-focus-in-base-anim,
+    .tracking-expand-base-anim, .shadow-drop-base-anim, .text-blur-out-base-anim,
+    .text-slide-focus-base-anim, .color-change-hover-base-anim,
+    .typewriter-base-anim, .rotate-hover-base-anim, .flip-hover-base-anim,
+    .rotate-out-base-anim, .jiggle-base-anim, .text-reveal-base-anim {
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-out;
+    }
+
+    .slide-in-base-anim, .bounce-in-base-anim, .flip-in-base-anim,
+    .light-speed-in-base-anim, .zoom-in-base-anim, .rotate-in-base-anim, .roll-in-base-anim,
+    .jack-in-the-box-base-anim,
+    .text-fade-base-anim, .text-pop-base-anim,
+    .text-focus-in-base-anim, .tracking-expand-base-anim, .text-slide-focus-base-anim,
+    .fade-anim {
+      opacity: 0;
+    }
+
+    .slide-out-base-anim, .flip-out-base-anim, .light-speed-out-base-anim,
+    .fade-out-base-anim, .zoom-out-base-anim, .hinge-base-anim, .text-blur-out-base-anim,
+    .rotate-out-base-anim {
+      opacity: 1;
+    }
+    .text-reveal-base-anim {
+        display: block;
+    }
+
+    .flip-in-base-anim, .flip-out-base-anim {
+        backface-visibility: visible !important;
+    }
+    .flip-hover-base-anim {
+        backface-visibility: visible !important;
+        transition: transform var(--dynamic-anim-duration) cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .typewriter-base-anim { font-family: monospace; white-space: nowrap; overflow: hidden; border-right: 2px solid var(--text-color); width: 0; }
+
+    .fade-anim { animation-name: fadeIn; }
+
+    .slide-in-left-anim { animation-name: slideInLeft; } .slide-in-right-anim { animation-name: slideInRight; }
+    .slide-in-up-anim { animation-name: slideInUp; } .slide-in-down-anim { animation-name: slideInDown; }
+
+    .slide-out-left-anim { animation-name: slideOutLeft; } .slide-out-right-anim { animation-name: slideOutRight; }
+    .slide-out-up-anim { animation-name: slideOutUp; } .slide-out-down-anim { animation-name: slideOutDown; }
+
+    .bounce-in-left-anim { animation-name: bounceInLeft; } .bounce-in-right-anim { animation-name: bounceInRight; }
+    .bounce-in-up-anim { animation-name: bounceInUp; } .bounce-in-down-anim { animation-name: bounceInDown; }
+
+    .flip-in-x-anim { animation-name: flipInX; } .flip-in-y-anim { animation-name: flipInY; }
+    .flip-out-x-anim { animation-name: flipOutX; } .flip-out-y-anim { animation-name: flipOutY; }
+
+    .flip-hover-up-anim:hover {
+        transform: perspective(800px) rotateX(-180deg);
+        animation: flipHoverUp var(--dynamic-anim-duration) cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    }
+    .flip-hover-down-anim:hover {
+        transform: perspective(800px) rotateX(180deg);
+        animation: flipHoverDown var(--dynamic-anim-duration) cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    }
+    .flip-hover-left-anim:hover {
+        transform: perspective(800px) rotateY(-180deg);
+        animation: flipHoverLeft var(--dynamic-anim-duration) cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    }
+    .flip-hover-right-anim:hover {
+        transform: perspective(800px) rotateY(180deg);
+        animation: flipHoverRight var(--dynamic-anim-duration) cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    }
+
+    .light-speed-in-left-anim { animation-name: lightSpeedInLeft; } .light-speed-in-right-anim { animation-name: lightSpeedInRight; }
+    .light-speed-out-left-anim { animation-name: lightSpeedOutLeft; } .light-speed-out-right-anim { animation-name: lightSpeedOutRight; }
+
+    .zoom-in-center-anim { animation-name: zoomInCenter; } .zoom-in-up-anim { animation-name: zoomInUp; } .zoom-in-down-anim { animation-name: zoomInDown; }
+    .zoom-out-center-anim { animation-name: zoomOutCenter; }
+
+    .fade-out-center-anim { animation-name: fadeOutCenter; } .fade-out-down-anim { animation-name: fadeOutDown; }
+    .fade-out-up-anim { animation-name: fadeOutUp; } .fade-out-left-anim { animation-name: fadeOutLeft; } .fade-out-right-anim { animation-name: fadeOutRight; }
+
+    .rotate-in-anim { animation-name: rotateIn; } .roll-in-anim { animation-name: rollIn; }
+    .jack-in-the-box-anim { animation-name: jackInTheBox; } .tada-anim { animation-name: tada; }
+    .wobble-anim { animation-name: wobble; } .jello-anim { animation-name: jello; transform-origin: center; }
+    .flash-anim { animation-name: flash; } .rubber-band-anim { animation-name: rubberBand; }
+    .head-shake-anim { animation-name: headShake; } .hinge-anim { animation-name: hinge; }
+    .rotate-out-clockwise-anim { animation-name: rotateOutClockwise; transform-origin: center; }
+    .rotate-out-counter-clockwise-anim { animation-name: rotateOutCounterClockwise; transform-origin: center; }
+    .jiggle-anim { animation-name: jiggle; }
+
+    /* Static & Hover Animations */
+    .fade-in-out { animation: fadeInOut 3s ease-in-out infinite; }
+
+    .rotate-hover-clockwise-anim:hover { animation: rotateClockwise var(--dynamic-anim-duration) linear infinite; }
+    .rotate-hover-counter-clockwise-anim:hover { animation: rotateCounterClockwise var(--dynamic-anim-duration) linear infinite; }
+
+    .bounce:hover { animation: bounce 0.5s ease-in-out infinite; }
+    .pulse:hover { animation: pulse 1s ease-in-out infinite; }
+
+    .color-change-hover-anim:hover { animation: colorChange var(--dynamic-anim-duration) ease-in-out infinite alternate; }
+
+    .shake:hover { animation: shake 0.5s ease-in-out infinite; }
+    .scale { transition: transform 0.3s ease-in-out; }
+    .scale:hover { transform: scale(1.2); }
+    .swing { transform-origin: top center; }
+    .swing:hover { animation: swing 1s ease-out; }
+    .heartbeat-anim { animation: heartBeat 1.3s ease-in-out infinite; }
+
+    .shadow-pop-hover { transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; }
+    .shadow-pop-hover:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 12px 20px rgba(0,0,0,0.2), 0 4px 8px rgba(0,0,0,0.15); }
+
+    /* Text Animations */
+    .text-fade-anim { animation-name: textFadeIn; }
+    .typewriter-anim { animation-name: typewriter; animation-timing-function: steps(40, end); }
+    .pulse-text-anim { animation: pulseTextColor 2s infinite; }
+    .text-pop-anim { animation-name: textPopIn; }
+    .pulse-shadow-text-anim { animation: pulseTextShadow 2s infinite; }
+    .text-focus-in-anim { animation-name: textFocusIn; animation-timing-function: cubic-bezier(0.550, 0.085, 0.680, 0.530); }
+    .tracking-expand-anim { animation-name: trackingInExpand; animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000); }
+    .text-flicker-anim { animation: textFlicker 1.5s infinite; }
+    .shadow-drop-anim { animation-name: shadowDropCenter; animation-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940); }
+    .text-blur-out-anim { animation-name: textBlurOut; }
+    .kenburns-text-anim { animation: kenBurnsText 8s ease-in-out infinite; }
+    .text-vibrate-anim { animation: textVibrate 0.3s linear infinite both; }
+    .text-slide-focus-anim { animation-name: textSlideFocusIn; animation-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940); }
+    .text-gradient-anim {
+      background: linear-gradient(to right, var(--text-color), #e74c3c, #3498db, var(--text-color));
+      background-size: 200% auto;
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      animation: textGradientAnimate 5s linear infinite;
+    }
+    .marquee-text.scroll-left { animation-name: marqueeScrollLeft; animation-timing-function: linear; animation-iteration-count: infinite; }
+    .marquee-text.scroll-right { animation-name: marqueeScrollRight; animation-timing-function: linear; animation-iteration-count: infinite; }
+    .ticker-text.scroll-up { animation-name: tickerScrollUp; animation-timing-function: linear; animation-iteration-count: infinite; }
+    .ticker-text.scroll-down { animation-name: tickerScrollDown; animation-timing-function: linear; animation-iteration-count: infinite; }
+    .text-reveal-up-anim { animation-name: textRevealUp; }
+    .text-reveal-down-anim { animation-name: textRevealDown; }
+
+  </style>
+</head>
+<body>
+  <div id="aria-live-announcer" class="visually-hidden" aria-live="polite" aria-atomic="true"></div>
+
+  <header class="fixed-header-controls">
+    <div class="header-left-actions">
+        <button id="theme-toggle" aria-label="Toggle Theme">
+            <i class="fas fa-moon" aria-hidden="true"></i><span class="button-text-desktop">Dark Mode</span>
+        </button>
+        <button id="view-toggle" aria-label="Toggle View">
+            <i class="fas fa-th-large" aria-hidden="true"></i><span class="button-text-desktop">Grid View</span>
+        </button>
+    </div>
+    <input type="search" id="animation-search" placeholder="Search animations..." aria-label="Search animations">
+    <div class="header-right-actions">
+        <a href="https://www.techcentric.cc" id="home-link" title="Go to techcentric.cc Homepage">
+            <span class="home-link-text">Go to techcentric.cc</span>
+            <span class="animated-arrow" aria-hidden="true">&#10140;</span>
+            <span class="home-icon" aria-hidden="true">🏠</span>
+        </a>
+    </div>
+  </header>
+
+  <main>
+    <h1>CSS Animation Effects Showcase</h1>
+     <div id="no-results-message">
+      No animations found matching your search.
+    </div>
+    <div class="implementation-guide">
+      <h2>How to Use These Animations</h2>
+      <p>Integrating these CSS animations into your website is straightforward. Here's a breakdown:</p>
+      <h3>Understanding the Components</h3>
+      <p>Each animation generally consists of two main parts in the CSS:</p>
+      <ul>
+        <li><strong><code>@keyframes</code> Definition:</strong> This block (e.g., <code>@keyframes slideInLeft { ... }</code>) defines the sequence of an animation.</li>
+        <li><strong>CSS Class Rule:</strong> This rule (e.g., <code>.my-element.slide-in-left-anim { ... }</code>) applies the <code>@keyframes</code>. It includes initial styles and the <code>animation</code> property.</li>
+      </ul>
+      <h3>Steps to Implement:</h3>
+      <ol>
+        <li><strong>Choose an Animation:</strong> Use controls to customize. Code snippet updates.</li>
+        <li><strong>Copy the CSS Code:</strong> Includes <code>@keyframes</code> and the CSS class rule.
+          <p><em>Example structure:</em></p>
+          <pre><code class="language-css">/* 1. Keyframes Definition */
+@keyframes slideInLeft { /* ... */ }
+
+/* 2. CSS Class to Apply */
+.your-element.slide-in-left-anim { /* ... */ }</code></pre>
+        </li>
+        <li><strong>Prepare Your HTML:</strong>
+          <pre><code class="language-html">&lt;div class="my-cool-box"&gt;Animate me!&lt;/div&gt;</code></pre>
+          <p>For "Text Reveal", use a wrapper:
+          <pre><code class="language-html">&lt;div class="text-reveal-wrapper"&gt;
+  &lt;p class="my-revealing-text"&gt;Revealing!&lt;/p&gt;
+&lt;/div&gt;</code></pre></p>
+        </li>
+        <li><strong>Apply Animation Class in HTML:</strong>
+          <pre><code class="language-html">&lt;div class="my-cool-box slide-in-left-anim"&gt;I slide!&lt;/div&gt;</code></pre>
+        </li>
+        <li><strong>Add CSS to Your Stylesheet.</strong></li>
+        <li><strong>Customize Further (Optional).</strong></li>
+      </ol>
+    </div>
+
+    <div id="animation-showcase-container">
+      <h2 class="main-section-heading">Element Animation Effects</h2>
+
+      <!-- CONSOLIDATED: Slide In -->
+      <div class="demo-section" data-animation-group="slideIn">
+        <h2>Slide In</h2>
+        <div class="controls-container">
+          <label for="slideInDirection">Direction:</label>
+          <select id="slideInDirection" data-control-type="direction">
+            <option value="left" selected>Left</option> <option value="right">Right</option>
+            <option value="up">Up</option> <option value="down">Down</option>
+          </select>
+          <label for="slideInDuration">Duration:</label>
+          <input type="range" id="slideInDuration" data-control-type="duration" min="0.1" max="3" step="0.1" value="1">
+          <span class="duration-value">1.0s</span>
+          <button class="replay-btn" data-anim-group="slideIn">Replay</button>
+        </div>
+        <div class="animation-box" data-demo-box="slideIn"></div>
+        <div class="code-container">
+          <button class="copy-btn" data-code-group="slideIn">Copy</button>
+          <div class="code-display-block" data-direction="left"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+/* Applying the animation */
+.your-element.{{className}} {
+  opacity: 0; /* Initial state for entrance animation */
+  animation: {{keyframeName}} {{duration}}s ease-out forwards;
+}"></code></pre></div>
+          <div class="code-display-block" data-direction="right"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.{{className}} {
+  opacity: 0;
+  animation: {{keyframeName}} {{duration}}s ease-out forwards;
+}"></code></pre></div>
+          <div class="code-display-block" data-direction="up"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.{{className}} {
+  opacity: 0;
+  animation: {{keyframeName}} {{duration}}s ease-out forwards;
+}"></code></pre></div>
+          <div class="code-display-block" data-direction="down"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.{{className}} {
+  opacity: 0;
+  animation: {{keyframeName}} {{duration}}s ease-out forwards;
+}"></code></pre></div>
+        </div>
+      </div>
+
+      <!-- CONSOLIDATED: Slide Out (Exit) -->
+      <div class="demo-section" data-animation-group="slideOut">
+        <h2>Slide Out (Exit)</h2>
+        <div class="controls-container">
+          <label for="slideOutDirection">Direction:</label>
+          <select id="slideOutDirection" data-control-type="direction">
+            <option value="up" selected>Up</option> <option value="down">Down</option>
+            <option value="left">Left</option> <option value="right">Right</option>
+          </select>
+          <label for="slideOutDuration">Duration:</label>
+          <input type="range" id="slideOutDuration" data-control-type="duration" min="0.1" max="3" step="0.1" value="1">
+          <span class="duration-value">1.0s</span>
+          <button class="replay-btn" data-anim-group="slideOut">Replay</button>
+        </div>
+        <div class="animation-box" data-demo-box="slideOut"></div>
+        <div class="code-container">
+          <button class="copy-btn" data-code-group="slideOut">Copy</button>
+          <div class="code-display-block" data-direction="up"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.{{className}} {
+  opacity: 1; /* Initial state for exit animation */
+  animation: {{keyframeName}} {{duration}}s ease-out forwards;
+}"></code></pre></div>
+          <div class="code-display-block" data-direction="down"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.{{className}} {
+  opacity: 1;
+  animation: {{keyframeName}} {{duration}}s ease-out forwards;
+}"></code></pre></div>
+          <div class="code-display-block" data-direction="left"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.{{className}} {
+  opacity: 1;
+  animation: {{keyframeName}} {{duration}}s ease-out forwards;
+}"></code></pre></div>
+          <div class="code-display-block" data-direction="right"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.{{className}} {
+  opacity: 1;
+  animation: {{keyframeName}} {{duration}}s ease-out forwards;
+}"></code></pre></div>
+        </div>
+      </div>
+
+      <!-- CONSOLIDATED: Bounce In -->
+      <div class="demo-section" data-animation-group="bounceIn">
+        <h2>Bounce In</h2>
+        <div class="controls-container">
+          <label for="bounceInDirection">Direction:</label>
+          <select id="bounceInDirection" data-control-type="direction">
+            <option value="down" selected>Down</option> <option value="up">Up</option>
+            <option value="left">Left</option> <option value="right">Right</option>
+          </select>
+          <label for="bounceInDuration">Duration:</label>
+          <input type="range" id="bounceInDuration" data-control-type="duration" min="0.1" max="3" step="0.1" value="1">
+          <span class="duration-value">1.0s</span>
+          <button class="replay-btn" data-anim-group="bounceIn">Replay</button>
+        </div>
+        <div class="animation-box" data-demo-box="bounceIn"></div>
+        <div class="code-container">
+          <button class="copy-btn" data-code-group="bounceIn">Copy</button>
+          <div class="code-display-block" data-direction="down"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.{{className}} {
+  opacity: 0; /* Initial state for entrance */
+  animation: {{keyframeName}} {{duration}}s forwards; /* Timing function often in keyframe */
+}"></code></pre></div>
+          <div class="code-display-block" data-direction="up"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.{{className}} {
+  opacity: 0;
+  animation: {{keyframeName}} {{duration}}s forwards;
+}"></code></pre></div>
+          <div class="code-display-block" data-direction="left"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.{{className}} {
+  opacity: 0;
+  animation: {{keyframeName}} {{duration}}s forwards;
+}"></code></pre></div>
+          <div class="code-display-block" data-direction="right"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.{{className}} {
+  opacity: 0;
+  animation: {{keyframeName}} {{duration}}s forwards;
+}"></code></pre></div>
+        </div>
+      </div>
+
+      <!-- CONSOLIDATED: Flip In -->
+      <div class="demo-section" data-animation-group="flipIn">
+        <h2>Flip In</h2>
+        <div class="controls-container">
+          <label for="flipInDirection">Axis:</label>
+          <select id="flipInDirection" data-control-type="direction">
+            <option value="x" selected>X-Axis</option> <option value="y">Y-Axis</option>
+          </select>
+          <label for="flipInDuration">Duration:</label>
+          <input type="range" id="flipInDuration" data-control-type="duration" min="0.1" max="3" step="0.1" value="1">
+          <span class="duration-value">1.0s</span>
+          <button class="replay-btn" data-anim-group="flipIn">Replay</button>
+        </div>
+        <div class="animation-box" data-demo-box="flipIn"></div>
+        <div class="code-container">
+          <button class="copy-btn" data-code-group="flipIn">Copy</button>
+          <div class="code-display-block" data-direction="x"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.{{className}} {
+  opacity: 0; backface-visibility: visible !important;
+  animation: {{keyframeName}} {{duration}}s forwards; /* Timing function often in keyframe */
+}"></code></pre></div>
+          <div class="code-display-block" data-direction="y"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.{{className}} {
+  opacity: 0; backface-visibility: visible !important;
+  animation: {{keyframeName}} {{duration}}s forwards;
+}"></code></pre></div>
+        </div>
+      </div>
+
+      <!-- CONSOLIDATED: Flip Out (Exit) -->
+      <div class="demo-section" data-animation-group="flipOut">
+        <h2>Flip Out (Exit)</h2>
+        <div class="controls-container">
+          <label for="flipOutDirection">Axis:</label>
+          <select id="flipOutDirection" data-control-type="direction">
+            <option value="y" selected>Y-Axis</option> <option value="x">X-Axis</option>
+          </select>
+          <label for="flipOutDuration">Duration:</label>
+          <input type="range" id="flipOutDuration" data-control-type="duration" min="0.1" max="3" step="0.1" value="1">
+          <span class="duration-value">1.0s</span>
+          <button class="replay-btn" data-anim-group="flipOut">Replay</button>
+        </div>
+        <div class="animation-box" data-demo-box="flipOut"></div>
+        <div class="code-container">
+          <button class="copy-btn" data-code-group="flipOut">Copy</button>
+          <div class="code-display-block" data-direction="y"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.{{className}} {
+  opacity: 1; backface-visibility: visible !important;
+  animation: {{keyframeName}} {{duration}}s forwards;
+}"></code></pre></div>
+          <div class="code-display-block" data-direction="x"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.{{className}} {
+  opacity: 1; backface-visibility: visible !important;
+  animation: {{keyframeName}} {{duration}}s forwards;
+}"></code></pre></div>
+        </div>
+      </div>
+
+      <!-- CONSOLIDATED: Light Speed In (Horizontal) -->
+      <div class="demo-section" data-animation-group="lightSpeedIn">
+        <h2>Light Speed In (Horizontal)</h2>
+        <div class="controls-container">
+          <label for="lightSpeedInDirection">Direction:</label>
+          <select id="lightSpeedInDirection" data-control-type="direction">
+            <option value="right" selected>Right</option> <option value="left">Left</option>
+          </select>
+          <label for="lightSpeedInDuration">Duration:</label>
+          <input type="range" id="lightSpeedInDuration" data-control-type="duration" min="0.1" max="3" step="0.1" value="1">
+          <span class="duration-value">1.0s</span>
+          <button class="replay-btn" data-anim-group="lightSpeedIn">Replay</button>
+        </div>
+        <div class="animation-box" data-demo-box="lightSpeedIn"></div>
+        <div class="code-container">
+          <button class="copy-btn" data-code-group="lightSpeedIn">Copy</button>
+          <div class="code-display-block" data-direction="right"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.{{className}} {
+  opacity: 0; /* Initial state for entrance */
+  animation: {{keyframeName}} {{duration}}s forwards; /* Timing function often in keyframe */
+}"></code></pre></div>
+          <div class="code-display-block" data-direction="left"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.{{className}} {
+  opacity: 0;
+  animation: {{keyframeName}} {{duration}}s forwards;
+}"></code></pre></div>
+        </div>
+      </div>
+
+      <!-- CONSOLIDATED: Light Speed Out (Horizontal Exit) -->
+      <div class="demo-section" data-animation-group="lightSpeedOut">
+        <h2>Light Speed Out (Horizontal Exit)</h2>
+        <div class="controls-container">
+          <label for="lightSpeedOutDirection">Direction:</label>
+          <select id="lightSpeedOutDirection" data-control-type="direction">
+            <option value="left" selected>Left</option> <option value="right">Right</option>
+          </select>
+          <label for="lightSpeedOutDuration">Duration:</label>
+          <input type="range" id="lightSpeedOutDuration" data-control-type="duration" min="0.1" max="3" step="0.1" value="1">
+          <span class="duration-value">1.0s</span>
+          <button class="replay-btn" data-anim-group="lightSpeedOut">Replay</button>
+        </div>
+        <div class="animation-box" data-demo-box="lightSpeedOut"></div>
+        <div class="code-container">
+          <button class="copy-btn" data-code-group="lightSpeedOut">Copy</button>
+          <div class="code-display-block" data-direction="left"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.{{className}} {
+  opacity: 1; /* Initial state for exit */
+  animation: {{keyframeName}} {{duration}}s forwards;
+}"></code></pre></div>
+          <div class="code-display-block" data-direction="right"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.{{className}} {
+  opacity: 1;
+  animation: {{keyframeName}} {{duration}}s forwards;
+}"></code></pre></div>
+        </div>
+      </div>
+
+      <!-- CONSOLIDATED: Zoom In -->
+      <div class="demo-section" data-animation-group="zoomIn">
+        <h2>Zoom In</h2>
+        <div class="controls-container">
+          <label for="zoomInDirection">Type/Direction:</label>
+          <select id="zoomInDirection" data-control-type="direction">
+            <option value="center" selected>Center</option> <option value="up">Up</option> <option value="down">Down</option>
+          </select>
+          <label for="zoomInDuration">Duration:</label>
+          <input type="range" id="zoomInDuration" data-control-type="duration" min="0.1" max="3" step="0.1" value="0.7">
+          <span class="duration-value">0.7s</span>
+          <button class="replay-btn" data-anim-group="zoomIn">Replay</button>
+        </div>
+        <div class="animation-box" data-demo-box="zoomIn"></div>
+        <div class="code-container">
+          <button class="copy-btn" data-code-group="zoomIn">Copy</button>
+          <div class="code-display-block" data-direction="center"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.{{className}} {
+  opacity: 0; /* Initial state for entrance */
+  animation: {{keyframeName}} {{duration}}s ease-out forwards;
+}"></code></pre></div>
+          <div class="code-display-block" data-direction="up"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.{{className}} {
+  opacity: 0;
+  animation: {{keyframeName}} {{duration}}s forwards; /* Timing function often in keyframe */
+}"></code></pre></div>
+           <div class="code-display-block" data-direction="down"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.{{className}} {
+  opacity: 0;
+  animation: {{keyframeName}} {{duration}}s forwards; /* Timing function often in keyframe */
+}"></code></pre></div>
+        </div>
+      </div>
+
+      <!-- CONSOLIDATED: Zoom Out (Exit) -->
+      <div class="demo-section" data-animation-group="zoomOut">
+        <h2>Zoom Out (Exit)</h2>
+        <div class="controls-container">
+          <label for="zoomOutDuration">Duration:</label>
+          <input type="range" id="zoomOutDuration" data-control-type="duration" min="0.1" max="3" step="0.1" value="1">
+          <span class="duration-value">1.0s</span>
+          <button class="replay-btn" data-anim-group="zoomOut">Replay</button>
+        </div>
+        <div class="animation-box" data-demo-box="zoomOut"></div>
+        <div class="code-container">
+          <button class="copy-btn" data-code-group="zoomOut">Copy</button>
+          <div class="code-display-block" data-direction="default"> <pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+/* Applying the animation */
+.your-element.{{className}} {
+  opacity: 1; /* Initial state for exit animation */
+  animation: {{keyframeName}} {{duration}}s forwards;
+}"></code></pre></div>
+        </div>
+      </div>
+      <!-- CONSOLIDATED: Fade Out (Exit) -->
+      <div class="demo-section" data-animation-group="fadeOut">
+        <h2>Fade Out (Exit)</h2>
+        <div class="controls-container">
+          <label for="fadeOutDirection">Type/Direction:</label>
+          <select id="fadeOutDirection" data-control-type="direction">
+            <option value="center" selected>Center (Fade Only)</option>
+            <option value="down">Down</option> <option value="up">Up</option>
+            <option value="left">Left</option> <option value="right">Right</option>
+          </select>
+          <label for="fadeOutDuration">Duration:</label>
+          <input type="range" id="fadeOutDuration" data-control-type="duration" min="0.1" max="3" step="0.1" value="1">
+          <span class="duration-value">1.0s</span>
+          <button class="replay-btn" data-anim-group="fadeOut">Replay</button>
+        </div>
+        <div class="animation-box" data-demo-box="fadeOut"></div>
+        <div class="code-container">
+          <button class="copy-btn" data-code-group="fadeOut">Copy</button>
+          <div class="code-display-block" data-direction="center"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.{{className}} {
+  opacity: 1; /* Initial state for exit */
+  animation: {{keyframeName}} {{duration}}s forwards;
+}"></code></pre></div>
+          <div class="code-display-block" data-direction="down"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.{{className}} {
+  opacity: 1;
+  animation: {{keyframeName}} {{duration}}s forwards;
+}"></code></pre></div>
+          <div class="code-display-block" data-direction="up"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.{{className}} {
+  opacity: 1;
+  animation: {{keyframeName}} {{duration}}s forwards;
+}"></code></pre></div>
+          <div class="code-display-block" data-direction="left"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.{{className}} {
+  opacity: 1;
+  animation: {{keyframeName}} {{duration}}s forwards;
+}"></code></pre></div>
+          <div class="code-display-block" data-direction="right"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.{{className}} {
+  opacity: 1;
+  animation: {{keyframeName}} {{duration}}s forwards;
+}"></code></pre></div>
+        </div>
+      </div>
+
+      <!-- NEW: Rotate Out (Exit) -->
+      <div class="demo-section" data-animation-group="rotateOut">
+        <h2>Rotate Out (Exit)</h2>
+        <div class="controls-container">
+          <label for="rotateOutDirection">Direction:</label>
+          <select id="rotateOutDirection" data-control-type="direction">
+            <option value="clockwise" selected>Clockwise</option>
+            <option value="counter-clockwise">Counter-Clockwise</option>
+          </select>
+          <label for="rotateOutDuration">Duration:</label>
+          <input type="range" id="rotateOutDuration" data-control-type="duration" min="0.1" max="3" step="0.1" value="1">
+          <span class="duration-value">1.0s</span>
+          <button class="replay-btn" data-anim-group="rotateOut">Replay</button>
+        </div>
+        <div class="animation-box" data-demo-box="rotateOut"></div>
+        <div class="code-container">
+          <button class="copy-btn" data-code-group="rotateOut">Copy</button>
+          <div class="code-display-block" data-direction="clockwise"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.{{className}} {
+  opacity: 1; /* Initial state for exit */
+  transform-origin: center;
+  animation: {{keyframeName}} {{duration}}s ease-out forwards;
+}"></code></pre></div>
+          <div class="code-display-block" data-direction="counter-clockwise"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.{{className}} {
+  opacity: 1; /* Initial state for exit */
+  transform-origin: center;
+  animation: {{keyframeName}} {{duration}}s ease-out forwards;
+}"></code></pre></div>
+        </div>
+      </div>
+
+
+      <!-- Static Animations with Duration Control -->
+      <div class="demo-section" data-animation-group="fadeIn">
+        <h2>Fade In</h2>
+        <div class="controls-container">
+            <label for="fadeInDuration">Duration:</label>
+            <input type="range" id="fadeInDuration" data-control-type="duration" min="0.1" max="4" step="0.1" value="2">
+            <span class="duration-value">2.0s</span>
+            <button class="replay-btn" data-anim-group="fadeIn">Replay</button>
+        </div>
+        <div class="animation-box" data-demo-box="fadeIn"></div>
+        <div class="code-container">
+          <button class="copy-btn" data-code-group="fadeIn">Copy</button>
+          <div class="code-display-block" data-direction="default"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+/* Applying the animation */
+.your-element.{{className}} {
+  opacity: 0; /* Initial state for entrance */
+  animation: {{keyframeName}} {{duration}}s ease-in-out forwards;
+}"></code></pre></div>
+        </div>
+      </div>
+
+      <div class="demo-section" data-animation-group="rotateIn">
+        <h2>Rotate In</h2>
+        <div class="controls-container">
+          <label for="rotateInDuration">Duration:</label>
+          <input type="range" id="rotateInDuration" data-control-type="duration" min="0.1" max="3" step="0.1" value="1">
+          <span class="duration-value">1.0s</span>
+          <button class="replay-btn" data-anim-group="rotateIn">Replay</button>
+        </div>
+        <div class="animation-box" data-demo-box="rotateIn"></div>
+        <div class="code-container">
+          <button class="copy-btn" data-code-group="rotateIn">Copy</button>
+          <div class="code-display-block" data-direction="default"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.{{className}} {
+  opacity: 0; /* Initial state for entrance */
+  animation: {{keyframeName}} {{duration}}s forwards;
+}"></code></pre></div>
+        </div>
+      </div>
+
+      <div class="demo-section" data-animation-group="rollIn">
+        <h2>Roll In</h2>
+        <div class="controls-container">
+            <label for="rollInDuration">Duration:</label>
+            <input type="range" id="rollInDuration" data-control-type="duration" min="0.1" max="3" step="0.1" value="1">
+            <span class="duration-value">1.0s</span>
+            <button class="replay-btn" data-anim-group="rollIn">Replay</button>
+        </div>
+        <div class="animation-box" data-demo-box="rollIn"></div>
+        <div class="code-container">
+            <button class="copy-btn" data-code-group="rollIn">Copy</button>
+            <div class="code-display-block" data-direction="default"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.{{className}} {
+  opacity: 0; /* Initial state for entrance */
+  animation: {{keyframeName}} {{duration}}s forwards;
+}"></code></pre></div>
+        </div>
+      </div>
+
+      <div class="demo-section" data-animation-group="jackInTheBox">
+        <h2>Jack In The Box</h2>
+        <div class="controls-container">
+            <label for="jackInTheBoxDuration">Duration:</label>
+            <input type="range" id="jackInTheBoxDuration" data-control-type="duration" min="0.1" max="3" step="0.1" value="1">
+            <span class="duration-value">1.0s</span>
+            <button class="replay-btn" data-anim-group="jackInTheBox">Replay</button>
+        </div>
+        <div class="animation-box" data-demo-box="jackInTheBox"></div>
+        <div class="code-container">
+            <button class="copy-btn" data-code-group="jackInTheBox">Copy</button>
+            <div class="code-display-block" data-direction="default"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.{{className}} {
+  opacity: 0; /* Initial state for entrance */
+  animation: {{keyframeName}} {{duration}}s forwards;
+}"></code></pre></div>
+        </div>
+      </div>
+
+      <div class="demo-section" data-animation-group="hinge">
+        <h2>Hinge (Exit)</h2>
+         <div class="controls-container">
+            <label for="hingeDuration">Duration:</label>
+            <input type="range" id="hingeDuration" data-control-type="duration" min="0.5" max="4" step="0.1" value="2">
+            <span class="duration-value">2.0s</span>
+            <button class="replay-btn" data-anim-group="hinge">Replay</button>
+        </div>
+        <div class="animation-box" data-demo-box="hinge"></div>
+        <div class="code-container">
+          <button class="copy-btn" data-code-group="hinge">Copy</button>
+          <div class="code-display-block" data-direction="default"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.{{className}} {
+  opacity:1; /* Initial state for exit */
+  animation: {{keyframeName}} {{duration}}s forwards; /* Timing function often in keyframe */
+}"></code></pre></div>
+        </div>
+      </div>
+
+      <div class="demo-section" data-animation-group="tada">
+        <h2>Tada</h2>
+        <div class="controls-container">
+            <label for="tadaDuration">Duration:</label>
+            <input type="range" id="tadaDuration" data-control-type="duration" min="0.1" max="3" step="0.1" value="1">
+            <span class="duration-value">1.0s</span>
+            <button class="replay-btn" data-anim-group="tada">Replay</button>
+        </div>
+        <div class="animation-box" data-demo-box="tada"></div>
+        <div class="code-container">
+            <button class="copy-btn" data-code-group="tada">Copy</button>
+            <div class="code-display-block" data-direction="default"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.{{className}} {
+  /* No opacity change for Tada */
+  animation: {{keyframeName}} {{duration}}s forwards;
+}"></code></pre></div>
+        </div>
+      </div>
+
+      <div class="demo-section" data-animation-group="wobble">
+        <h2>Wobble</h2>
+        <div class="controls-container">
+            <label for="wobbleDuration">Duration:</label>
+            <input type="range" id="wobbleDuration" data-control-type="duration" min="0.1" max="3" step="0.1" value="1">
+            <span class="duration-value">1.0s</span>
+            <button class="replay-btn" data-anim-group="wobble">Replay</button>
+        </div>
+        <div class="animation-box" data-demo-box="wobble"></div>
+        <div class="code-container">
+            <button class="copy-btn" data-code-group="wobble">Copy</button>
+            <div class="code-display-block" data-direction="default"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.{{className}} {
+  animation: {{keyframeName}} {{duration}}s forwards;
+}"></code></pre></div>
+        </div>
+      </div>
+
+      <div class="demo-section" data-animation-group="jello">
+        <h2>Jello</h2>
+        <div class="controls-container">
+            <label for="jelloDuration">Duration:</label>
+            <input type="range" id="jelloDuration" data-control-type="duration" min="0.1" max="3" step="0.1" value="1">
+            <span class="duration-value">1.0s</span>
+            <button class="replay-btn" data-anim-group="jello">Replay</button>
+        </div>
+        <div class="animation-box" data-demo-box="jello"></div>
+        <div class="code-container">
+            <button class="copy-btn" data-code-group="jello">Copy</button>
+            <div class="code-display-block" data-direction="default"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.{{className}} {
+  transform-origin: center; /* Needed for jello */
+  animation: {{keyframeName}} {{duration}}s forwards;
+}"></code></pre></div>
+        </div>
+      </div>
+
+      <div class="demo-section" data-animation-group="jiggle">
+        <h2>Jiggle</h2>
+        <div class="controls-container">
+            <label for="jiggleDuration">Duration:</label>
+            <input type="range" id="jiggleDuration" data-control-type="duration" min="0.1" max="2" step="0.1" value="0.6">
+            <span class="duration-value">0.6s</span>
+            <button class="replay-btn" data-anim-group="jiggle">Replay</button>
+        </div>
+        <div class="animation-box" data-demo-box="jiggle"></div>
+        <div class="code-container">
+            <button class="copy-btn" data-code-group="jiggle">Copy</button>
+            <div class="code-display-block" data-direction="default"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.{{className}} {
+  animation: {{keyframeName}} {{duration}}s ease-in-out forwards;
+}"></code></pre></div>
+        </div>
+      </div>
+
+
+      <div class="demo-section" data-animation-group="flash">
+        <h2>Flash</h2>
+        <div class="controls-container">
+            <label for="flashDuration">Duration:</label>
+            <input type="range" id="flashDuration" data-control-type="duration" min="0.1" max="3" step="0.1" value="1">
+            <span class="duration-value">1.0s</span>
+            <button class="replay-btn" data-anim-group="flash">Replay</button>
+        </div>
+        <div class="animation-box" data-demo-box="flash"></div>
+        <div class="code-container">
+            <button class="copy-btn" data-code-group="flash">Copy</button>
+            <div class="code-display-block" data-direction="default"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.{{className}} {
+  animation: {{keyframeName}} {{duration}}s forwards;
+}"></code></pre></div>
+        </div>
+      </div>
+
+      <div class="demo-section" data-animation-group="rubberBand">
+        <h2>Rubber Band</h2>
+        <div class="controls-container">
+            <label for="rubberBandDuration">Duration:</label>
+            <input type="range" id="rubberBandDuration" data-control-type="duration" min="0.1" max="3" step="0.1" value="1">
+            <span class="duration-value">1.0s</span>
+            <button class="replay-btn" data-anim-group="rubberBand">Replay</button>
+        </div>
+        <div class="animation-box" data-demo-box="rubberBand"></div>
+        <div class="code-container">
+            <button class="copy-btn" data-code-group="rubberBand">Copy</button>
+            <div class="code-display-block" data-direction="default"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.{{className}} {
+  animation: {{keyframeName}} {{duration}}s forwards;
+}"></code></pre></div>
+        </div>
+      </div>
+
+      <div class="demo-section" data-animation-group="headShake">
+        <h2>Head Shake</h2>
+        <div class="controls-container">
+            <label for="headShakeDuration">Duration:</label>
+            <input type="range" id="headShakeDuration" data-control-type="duration" min="0.1" max="3" step="0.1" value="1">
+            <span class="duration-value">1.0s</span>
+            <button class="replay-btn" data-anim-group="headShake">Replay</button>
+        </div>
+        <div class="animation-box" data-demo-box="headShake"></div>
+        <div class="code-container">
+            <button class="copy-btn" data-code-group="headShake">Copy</button>
+            <div class="code-display-block" data-direction="default"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.{{className}} {
+  animation: {{keyframeName}} {{duration}}s forwards; /* Timing function often in keyframe */
+}"></code></pre></div>
+        </div>
+      </div>
+
+      <!-- INFINITE / REPEATING ELEMENT ANIMATIONS -->
+      <div class="demo-section">
+        <h2>Fade In Out (Infinite)</h2>
+        <div class="animation-box fade-in-out"></div>
+        <div class="code-container">
+          <button class="copy-btn" data-target="fade-in-out-code-static">Copy</button>
+          <pre><code id="fade-in-out-code-static" class="language-css">@keyframes fadeInOut { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
+.fade-in-out { animation: fadeInOut 3s ease-in-out infinite; }</code></pre>
+        </div>
+      </div>
+      <div class="demo-section">
+        <h2>Heart Beat (Infinite)</h2>
+        <div class="animation-box heartbeat-anim"></div>
+        <div class="code-container">
+          <button class="copy-btn" data-target="heartbeat-anim-code-static">Copy</button>
+          <pre><code id="heartbeat-anim-code-static" class="language-css">@keyframes heartBeat { 0% {transform: scale(1);} 14% {transform: scale(1.3);} 28% {transform: scale(1);} 42% {transform: scale(1.3);} 70% {transform: scale(1);} }
+.heartbeat-anim { animation: heartBeat 1.3s ease-in-out infinite; }</code></pre>
+        </div>
+      </div>
+
+
+      <!-- ON HOVER SECTION -->
+      <h2 class="main-section-heading">On Hover Effects</h2>
+
+      <div class="demo-section" data-animation-group="flipHover">
+        <h2>Flip (on hover)</h2>
+        <div class="controls-container">
+          <label for="flipHoverDirection">Direction:</label>
+          <select id="flipHoverDirection" data-control-type="direction">
+            <option value="up" selected>Up</option>
+            <option value="down">Down</option>
+            <option value="left">Left</option>
+            <option value="right">Right</option>
+          </select>
+          <label for="flipHoverDuration">Duration:</label>
+          <input type="range" id="flipHoverDuration" data-control-type="duration" min="0.1" max="2" step="0.1" value="0.7">
+          <span class="duration-value">0.7s</span>
+        </div>
+        <div class="animation-box flip-hover-base-anim" data-demo-box="flipHover"></div>
+        <div class="code-container">
+          <button class="copy-btn" data-code-group="flipHover">Copy</button>
+          <div class="code-display-block" data-direction="up"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+/* Base styles for the element */
+.your-element.flip-hover-base-anim {
+  backface-visibility: visible !important;
+  transition: transform {{duration}}s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* For smooth mouseout */
+  transform: perspective(800px) rotateX(0); /* Initial state */
+}
+
+/* Applying the hover animation */
+.your-element.{{className}}:hover {
+  transform: perspective(800px) rotateX(-180deg); /* Target state */
+  animation: {{keyframeName}} {{duration}}s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}"></code></pre></div>
+          <div class="code-display-block" data-direction="down"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.flip-hover-base-anim {
+  backface-visibility: visible !important;
+  transition: transform {{duration}}s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: perspective(800px) rotateX(0);
+}
+.your-element.{{className}}:hover {
+  transform: perspective(800px) rotateX(180deg);
+  animation: {{keyframeName}} {{duration}}s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}"></code></pre></div>
+          <div class="code-display-block" data-direction="left"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.flip-hover-base-anim {
+  backface-visibility: visible !important;
+  transition: transform {{duration}}s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: perspective(800px) rotateY(0);
+}
+.your-element.{{className}}:hover {
+  transform: perspective(800px) rotateY(-180deg);
+  animation: {{keyframeName}} {{duration}}s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}"></code></pre></div>
+          <div class="code-display-block" data-direction="right"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.flip-hover-base-anim {
+  backface-visibility: visible !important;
+  transition: transform {{duration}}s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: perspective(800px) rotateY(0);
+}
+.your-element.{{className}}:hover {
+  transform: perspective(800px) rotateY(180deg);
+  animation: {{keyframeName}} {{duration}}s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}"></code></pre></div>
+        </div>
+      </div>
+
+      <div class="demo-section" data-animation-group="rotateHover">
+        <h2>Rotate (on hover, infinite)</h2>
+        <div class="controls-container">
+          <label for="rotateHoverDirection">Direction:</label>
+          <select id="rotateHoverDirection" data-control-type="direction">
+            <option value="clockwise" selected>Clockwise</option>
+            <option value="counter-clockwise">Counter-Clockwise</option>
+          </select>
+          <label for="rotateHoverDuration">Duration:</label>
+          <input type="range" id="rotateHoverDuration" data-control-type="duration" min="0.5" max="5" step="0.1" value="2">
+          <span class="duration-value">2.0s</span>
+        </div>
+        <div class="animation-box rotate-hover-base-anim" data-demo-box="rotateHover"></div>
+        <div class="code-container">
+          <button class="copy-btn" data-code-group="rotateHover">Copy</button>
+          <div class="code-display-block" data-direction="clockwise"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+/* Add 'rotate-hover-base-anim' and '{{className}}' to your element. */
+/* The animation is triggered by the :hover pseudo-class on '{{className}}'. */
+/* Duration is controlled by --dynamic-anim-duration set on the element by JS. */
+.your-element.{{className}}:hover {
+  animation: {{keyframeName}} var(--dynamic-anim-duration) linear infinite;
+}"></code></pre></div>
+          <div class="code-display-block" data-direction="counter-clockwise"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-element.{{className}}:hover {
+  animation: {{keyframeName}} var(--dynamic-anim-duration) linear infinite;
+}"></code></pre></div>
+        </div>
+      </div>
+
+      <div class="demo-section" data-animation-group="colorChangeHover">
+        <h2>Color Change (on hover, infinite)</h2>
+        <div class="controls-container">
+          <label for="colorChangeFrom">From:</label>
+          <input type="color" id="colorChangeFrom" data-control-type="color" data-css-var="--anim-color-from" value="#ff0000">
+          <label for="colorChangeTo">To:</label>
+          <input type="color" id="colorChangeTo" data-control-type="color" data-css-var="--anim-color-to" value="#0000ff">
+          <label for="colorChangeDuration">Duration:</label>
+          <input type="range" id="colorChangeDuration" data-control-type="duration" min="0.1" max="5" step="0.1" value="2">
+          <span class="duration-value">2.0s</span>
+        </div>
+        <div class="animation-box color-change-hover-base-anim" data-demo-box="colorChangeHover"></div>
+        <div class="code-container">
+          <button class="copy-btn" data-code-group="colorChangeHover">Copy</button>
+          <div class="code-display-block" data-direction="default"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+/* Add 'color-change-hover-base-anim' and '{{className}}' to your element. */
+.your-element {
+  --anim-color-from: {{colorFrom}};
+  --anim-color-to: {{colorTo}};
+  /* --dynamic-anim-duration: {{duration}}s; /* Set on element by JS */
+  background-color: var(--animation-box-bg);
+}
+.your-element.{{className}}:hover {
+  animation: {{keyframeName}} var(--dynamic-anim-duration) ease-in-out infinite alternate;
+}"></code></pre></div>
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <h2>Shadow Pop (on hover)</h2>
+        <div class="animation-box shadow-pop-hover"></div>
+        <div class="code-container">
+          <button class="copy-btn" data-target="shadow-pop-code-static">Copy</button>
+          <pre><code id="shadow-pop-code-static" class="language-css">/* This is a transition-based effect (no @keyframes needed here) */
+.your-element.shadow-pop-hover {
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+.your-element.shadow-pop-hover:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.2), 0 4px 8px rgba(0,0,0,0.15);
+}</code></pre>
+        </div>
+      </div>
+
+
+      <div class="demo-section">
+        <h2>Bounce (on hover, infinite)</h2>
+        <div class="animation-box bounce"></div>
+        <div class="code-container">
+          <button class="copy-btn" data-target="bounce-code-static">Copy</button>
+          <pre><code id="bounce-code-static" class="language-css">@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+.bounce:hover { animation: bounce 0.5s infinite; }</code></pre>
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <h2>Pulse (on hover, infinite)</h2>
+        <div class="animation-box pulse"></div>
+        <div class="code-container">
+          <button class="copy-btn" data-target="pulse-code-static">Copy</button>
+          <pre><code id="pulse-code-static" class="language-css">@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+.pulse:hover { animation: pulse 1s infinite; }</code></pre>
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <h2>Shake (on hover, infinite)</h2>
+        <div class="animation-box shake"></div>
+        <div class="code-container">
+          <button class="copy-btn" data-target="shake-code-static">Copy</button>
+          <pre><code id="shake-code-static" class="language-css">@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
+.shake:hover { animation: shake 0.5s infinite; }</code></pre>
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <h2>Scale Up (on hover)</h2>
+        <div class="animation-box scale"></div>
+        <div class="code-container">
+          <button class="copy-btn" data-target="scale-code-static">Copy</button>
+          <pre><code id="scale-code-static" class="language-css">.scale { transition: transform 0.3s; }
+.scale:hover { transform: scale(1.2); }</code></pre>
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <h2>Swing (on hover)</h2>
+        <div class="animation-box swing"></div>
+        <div class="code-container">
+          <button class="copy-btn" data-target="swing-code-static">Copy</button>
+          <pre><code id="swing-code-static" class="language-css">@keyframes swing { 20% {transform:rotate3d(0,0,1,15deg);} 40% {transform:rotate3d(0,0,1,-10deg);} 60% {transform:rotate3d(0,0,1,5deg);} 80% {transform:rotate3d(0,0,1,-5deg);} 100% {transform:rotate3d(0,0,1,0deg);} }
+.swing { transform-origin: top center; }
+.swing:hover { animation: swing 1s; }</code></pre>
+        </div>
+      </div>
+      <h2 class="main-section-heading">Text Animation Effects</h2>
+
+      <div class="demo-section" data-animation-group="textFade">
+        <h2>Text: Fade In</h2>
+        <div class="controls-container">
+            <label for="textFadeDuration">Duration:</label>
+            <input type="range" id="textFadeDuration" data-control-type="duration" min="0.1" max="4" step="0.1" value="2">
+            <span class="duration-value">2.0s</span>
+            <button class="replay-btn" data-anim-group="textFade">Replay</button>
+        </div>
+        <div class="text-demo" data-is-text-demo="true" data-demo-box="textFade">Hello, I faded in!</div>
+        <div class="code-container">
+          <button class="copy-btn" data-code-group="textFade">Copy</button>
+          <div class="code-display-block" data-direction="default"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-text-element.{{className}} {
+  opacity: 0; /* Initial state for entrance */
+  animation: {{keyframeName}} {{duration}}s ease-out forwards;
+}"></code></pre></div>
+        </div>
+      </div>
+
+      <div class="demo-section" data-animation-group="textReveal">
+        <h2>Text: Reveal</h2>
+        <div class="controls-container">
+            <label for="textRevealDirection">Direction:</label>
+            <select id="textRevealDirection" data-control-type="direction">
+                <option value="up" selected>Up</option>
+                <option value="down">Down</option>
+            </select>
+            <label for="textRevealDuration">Duration:</label>
+            <input type="range" id="textRevealDuration" data-control-type="duration" min="0.1" max="3" step="0.1" value="0.8">
+            <span class="duration-value">0.8s</span>
+            <button class="replay-btn" data-anim-group="textReveal">Replay</button>
+        </div>
+        <div class="text-reveal-wrapper">
+            <div class="text-demo" data-is-text-demo="true" data-demo-box="textReveal">Revealing Text!</div>
+        </div>
+        <div class="code-container">
+          <button class="copy-btn" data-code-group="textReveal">Copy</button>
+          <div class="code-display-block" data-direction="up"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+/* Requires a wrapper for overflow:hidden */
+.text-reveal-wrapper {
+  display: inline-block; /* or block */
+  overflow: hidden;
+  line-height: 1.2em; /* Adjust to your text */
+}
+.your-text-element.{{className}} { /* Apply {{className}} to the text inside wrapper */
+  display: block; /* Allow transform */
+  animation: {{keyframeName}} {{duration}}s ease-out forwards;
+}"></code></pre></div>
+          <div class="code-display-block" data-direction="down"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.text-reveal-wrapper {
+  display: inline-block;
+  overflow: hidden;
+  line-height: 1.2em;
+}
+.your-text-element.{{className}} {
+  display: block;
+  animation: {{keyframeName}} {{duration}}s ease-out forwards;
+}"></code></pre></div>
+        </div>
+      </div>
+
+      <div class="demo-section" data-animation-group="textSlideFocus">
+        <h2>Text: Slide &amp; Focus In</h2>
+         <div class="controls-container">
+            <label for="textSlideFocusDuration">Duration:</label>
+            <input type="range" id="textSlideFocusDuration" data-control-type="duration" min="0.1" max="3" step="0.1" value="1">
+            <span class="duration-value">1.0s</span>
+            <button class="replay-btn" data-anim-group="textSlideFocus">Replay</button>
+        </div>
+        <div class="text-demo" data-is-text-demo="true" data-demo-box="textSlideFocus">Focusing In...</div>
+        <div class="code-container">
+          <button class="copy-btn" data-code-group="textSlideFocus">Copy</button>
+          <div class="code-display-block" data-direction="default"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-text-element.{{className}} {
+  opacity: 0; /* Initial state for entrance */
+  animation: {{keyframeName}} {{duration}}s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+}"></code></pre></div>
+        </div>
+      </div>
+
+      <div class="demo-section" data-animation-group="typewriter">
+        <h2>Text: Typewriter</h2>
+        <div class="controls-container">
+            <label for="typewriterDuration">Duration:</label>
+            <input type="range" id="typewriterDuration" data-control-type="duration" min="1" max="5" step="0.1" value="3">
+            <span class="duration-value">3.0s</span>
+            <button class="replay-btn" data-anim-group="typewriter">Replay</button>
+        </div>
+        <div class="text-demo typewriter-base-anim" data-is-text-demo="true" data-demo-box="typewriter">Typing this text...</div>
+        <div class="code-container">
+          <button class="copy-btn" data-code-group="typewriter">Copy</button>
+          <div class="code-display-block" data-direction="default"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-text-element.{{className}} { /* Base styles on .typewriter-base-anim */
+  font-family: monospace; white-space: nowrap; overflow: hidden;
+  border-right: 2px solid var(--text-color); width: 0;
+  animation: {{keyframeName}} {{duration}}s steps(40, end) forwards; /* Adjust steps based on text length */
+}"></code></pre></div>
+        </div>
+      </div>
+
+      <div class="demo-section" data-animation-group="textPop">
+        <h2>Text: Pop In</h2>
+         <div class="controls-container">
+            <label for="textPopDuration">Duration:</label>
+            <input type="range" id="textPopDuration" data-control-type="duration" min="0.1" max="3" step="0.1" value="1">
+            <span class="duration-value">1.0s</span>
+            <button class="replay-btn" data-anim-group="textPop">Replay</button>
+        </div>
+        <div class="text-demo" data-is-text-demo="true" data-demo-box="textPop">Pop!</div>
+        <div class="code-container">
+          <button class="copy-btn" data-code-group="textPop">Copy</button>
+          <div class="code-display-block" data-direction="default"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-text-element.{{className}} {
+  opacity: 0; /* Initial state for entrance */
+  animation: {{keyframeName}} {{duration}}s ease-out forwards;
+}"></code></pre></div>
+        </div>
+      </div>
+      
+      <div class="demo-section" data-animation-group="textFocusIn">
+        <h2>Text: Focus In</h2>
+        <div class="controls-container">
+            <label for="textFocusInDuration">Duration:</label>
+            <input type="range" id="textFocusInDuration" data-control-type="duration" min="0.1" max="3" step="0.1" value="1">
+            <span class="duration-value">1.0s</span>
+            <button class="replay-btn" data-anim-group="textFocusIn">Replay</button>
+        </div>
+        <div class="text-demo" data-is-text-demo="true" data-demo-box="textFocusIn">Focus...</div>
+        <div class="code-container">
+          <button class="copy-btn" data-code-group="textFocusIn">Copy</button>
+          <div class="code-display-block" data-direction="default"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-text-element.{{className}} {
+  opacity: 0; /* Initial state for entrance */
+  animation: {{keyframeName}} {{duration}}s cubic-bezier(0.550, 0.085, 0.680, 0.530) forwards;
+}"></code></pre></div>
+        </div>
+      </div>
+
+      <div class="demo-section" data-animation-group="trackingExpand">
+        <h2>Text: Tracking In Expand</h2>
+        <div class="controls-container">
+            <label for="trackingExpandDuration">Duration:</label>
+            <input type="range" id="trackingExpandDuration" data-control-type="duration" min="0.1" max="3" step="0.1" value="0.7">
+            <span class="duration-value">0.7s</span>
+            <button class="replay-btn" data-anim-group="trackingExpand">Replay</button>
+        </div>
+        <div class="text-demo" data-is-text-demo="true" data-demo-box="trackingExpand">EXPAND</div>
+        <div class="code-container">
+          <button class="copy-btn" data-code-group="trackingExpand">Copy</button>
+          <div class="code-display-block" data-direction="default"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-text-element.{{className}} {
+  opacity:0; /* Initial state for entrance */
+  animation: {{keyframeName}} {{duration}}s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
+}"></code></pre></div>
+        </div>
+      </div>
+
+      <div class="demo-section" data-animation-group="shadowDrop">
+        <h2>Text: Shadow Drop Center</h2>
+         <div class="controls-container">
+            <label for="shadowDropDuration">Duration:</label>
+            <input type="range" id="shadowDropDuration" data-control-type="duration" min="0.1" max="2" step="0.1" value="0.4">
+            <span class="duration-value">0.4s</span>
+            <button class="replay-btn" data-anim-group="shadowDrop">Replay</button>
+        </div>
+        <div class="text-demo" data-is-text-demo="true" data-demo-box="shadowDrop">Shadow Drop</div>
+        <div class="code-container">
+          <button class="copy-btn" data-code-group="shadowDrop">Copy</button>
+          <div class="code-display-block" data-direction="default"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-text-element.{{className}} {
+  animation: {{keyframeName}} {{duration}}s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+}"></code></pre></div>
+        </div>
+      </div>
+
+      <div class="demo-section" data-animation-group="textBlurOut">
+        <h2>Text: Blur Out (Exit)</h2>
+        <div class="controls-container">
+            <label for="textBlurOutDuration">Duration:</label>
+            <input type="range" id="textBlurOutDuration" data-control-type="duration" min="0.1" max="3" step="0.1" value="1.2">
+            <span class="duration-value">1.2s</span>
+            <button class="replay-btn" data-anim-group="textBlurOut">Replay</button>
+        </div>
+        <div class="text-demo" data-is-text-demo="true" data-demo-box="textBlurOut">I will blur out...</div>
+        <div class="code-container">
+          <button class="copy-btn" data-code-group="textBlurOut">Copy</button>
+          <div class="code-display-block" data-direction="default"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.your-text-element.{{className}} {
+  opacity:1; /* Initial state for exit */
+  animation: {{keyframeName}} {{duration}}s ease-out forwards;
+}"></code></pre></div>
+        </div>
+      </div>
+
+      <div class="demo-section" data-animation-group="marqueeScroll">
+        <h2>Text: Scroll (Marquee)</h2>
+        <div class="controls-container">
+            <label for="marqueeDirection">Direction:</label>
+            <select id="marqueeDirection" data-control-type="direction">
+                <option value="left" selected>Left</option> <option value="right">Right</option>
+            </select>
+            <label for="marqueeDuration">Duration:</label>
+            <input type="range" id="marqueeDuration" data-control-type="duration" min="2" max="30" step="1" value="15">
+            <span class="duration-value">15s</span>
+        </div>
+        <div class="marquee-container">
+            <div class="marquee-text" data-demo-box="marqueeScroll" data-is-text-demo="true">This text will scroll... A bit more text to make it longer. And even more.</div>
+        </div>
+        <div class="code-container">
+            <button class="copy-btn" data-code-group="marqueeScroll">Copy</button>
+            <div class="code-display-block" data-direction="left"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+/* Applying the animation */
+.marquee-container { width: 90%; overflow: hidden; margin: 20px auto; }
+.marquee-text.{{className}} {
+  display: inline-block; white-space: nowrap; padding-left: 100%;
+  animation: {{keyframeName}} {{duration}}s linear infinite;
+}"></code></pre></div>
+            <div class="code-display-block" data-direction="right"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.marquee-container { width: 90%; overflow: hidden; margin: 20px auto; }
+.marquee-text.{{className}} {
+  display: inline-block; white-space: nowrap; padding-right: 100%; /* padding-right for scroll-right */
+  animation: {{keyframeName}} {{duration}}s linear infinite;
+}"></code></pre></div>
+        </div>
+      </div>
+
+      <div class="demo-section" data-animation-group="tickerScroll">
+        <h2>Text: Scroll (Ticker)</h2>
+        <div class="controls-container">
+            <label for="tickerDirection">Direction:</label>
+            <select id="tickerDirection" data-control-type="direction">
+                <option value="up" selected>Up</option> <option value="down">Down</option>
+            </select>
+            <label for="tickerDuration">Duration:</label>
+            <input type="range" id="tickerDuration" data-control-type="duration" min="2" max="20" step="1" value="10">
+            <span class="duration-value">10s</span>
+        </div>
+        <div class="ticker-container">
+            <div class="ticker-text" data-demo-box="tickerScroll" data-is-text-demo="true">
+                <div>Breaking News: CSS is Awesome!</div>
+                <div>Weather Update: Sunny with a chance of animations.</div>
+                <div>Sports: Animations win the championship!</div>
+                <div>Tech: New CSS features announced.</div>
+                <div>Breaking News: CSS is Awesome!</div>
+                <div>Weather Update: Sunny with a chance of animations.</div>
+            </div>
+        </div>
+        <div class="code-container">
+            <button class="copy-btn" data-code-group="tickerScroll">Copy</button>
+            <div class="code-display-block" data-direction="up"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+/* Applying the animation */
+.ticker-container { width: 90%; height: 100px; overflow: hidden; margin: 20px auto;}
+.ticker-text.{{className}} { animation: {{keyframeName}} {{duration}}s linear infinite; }
+.ticker-text div { padding: 5px; }"></code></pre></div>
+            <div class="code-display-block" data-direction="down"><pre><code class="language-css" data-original-content="{{keyframesDefinition}}
+
+.ticker-container { width: 90%; height: 100px; overflow: hidden; margin: 20px auto;}
+.ticker-text.{{className}} { animation: {{keyframeName}} {{duration}}s linear infinite; }
+.ticker-text div { padding: 5px; }"></code></pre></div>
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <h2>Text: Color Pulse (Infinite)</h2>
+        <div class="text-demo pulse-text-anim">Watch my color change!</div>
+        <div class="code-container">
+          <button class="copy-btn" data-target="pulsetext-code-static">Copy</button>
+          <pre><code id="pulsetext-code-static" class="language-css">@keyframes pulseTextColor { 0% { color: #3498db; } 50% { color: #e74c3c; } 100% { color: #3498db; } }
+.pulse-text-anim { animation: pulseTextColor 2s infinite; }</code></pre>
+        </div>
+      </div>
+      <div class="demo-section">
+        <h2>Text: Pulse Shadow (Infinite)</h2>
+        <div class="text-demo pulse-shadow-text-anim">Glowing Shadow</div>
+        <div class="code-container">
+          <button class="copy-btn" data-target="pulseshadowtext-code-static">Copy</button>
+          <pre><code id="pulseshadowtext-code-static" class="language-css">@keyframes pulseTextShadow { 0% { text-shadow: 0 0 4px rgba(52,152,219,0.5); } 50% { text-shadow: 0 0 10px rgba(52,152,219,1); } 100% { text-shadow: 0 0 4px rgba(52,152,219,0.5); } }
+.pulse-shadow-text-anim { animation: pulseTextShadow 2s infinite; }</code></pre>
+        </div>
+      </div>
+      <div class="demo-section">
+        <h2>Text: Flicker (Infinite)</h2>
+        <div class="text-demo text-flicker-anim">Flicker</div>
+        <div class="code-container">
+          <button class="copy-btn" data-target="text-flicker-code-static">Copy</button>
+          <pre><code id="text-flicker-code-static" class="language-css">@keyframes textFlicker { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+.text-flicker-anim { animation: textFlicker 1.5s infinite; }</code></pre>
+        </div>
+      </div>
+      <div class="demo-section">
+        <h2>Text: Ken Burns Effect (Infinite)</h2>
+        <div class="text-demo kenburns-text-anim">Subtle Zoom & Pan</div>
+        <div class="code-container">
+          <button class="copy-btn" data-target="kenburns-text-code-static">Copy</button>
+          <pre><code id="kenburns-text-code-static" class="language-css">@keyframes kenBurnsText {
+  0% { transform: scale(1) translateX(0) translateY(0); opacity: 0.8; }
+  25% { transform: scale(1.02) translateX(-2px) translateY(1px); opacity: 1; }
+  50% { transform: scale(1) translateX(1px) translateY(-1px); opacity: 0.8; }
+  75% { transform: scale(1.02) translateX(2px) translateY(2px); opacity: 1; }
+  100% { transform: scale(1) translateX(0) translateY(0); opacity: 0.8; }
+}
+.kenburns-text-anim { animation: kenBurnsText 8s ease-in-out infinite; }</code></pre>
+        </div>
+      </div>
+      <div class="demo-section">
+        <h2>Text: Vibrate (Infinite)</h2>
+        <div class="text-demo text-vibrate-anim">Vibrating Text</div>
+        <div class="code-container">
+          <button class="copy-btn" data-target="text-vibrate-code-static">Copy</button>
+          <pre><code id="text-vibrate-code-static" class="language-css">@keyframes textVibrate {
+  0% { transform: translate(0); } 20% { transform: translate(-1px, 1px); }
+  40% { transform: translate(-1px, -1px); } 60% { transform: translate(1px, 1px); }
+  80% { transform: translate(1px, -1px); } 100% { transform: translate(0); }
+}
+.text-vibrate-anim { animation: textVibrate 0.3s linear infinite both; }</code></pre>
+        </div>
+      </div>
+      <div class="demo-section">
+        <h2>Text: Gradient Animate (Infinite)</h2>
+        <div class="text-demo text-gradient-anim">Colorful Gradient</div>
+        <div class="code-container">
+          <button class="copy-btn" data-target="text-gradient-code-static">Copy</button>
+          <pre><code id="text-gradient-code-static" class="language-css">@keyframes textGradientAnimate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.text-gradient-anim {
+  background: linear-gradient(to right, var(--text-color), #e74c3c, #3498db, var(--text-color));
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: textGradientAnimate 5s linear infinite;
+}</code></pre>
+        </div>
+      </div>
+
+    </div> <!-- End #animation-showcase-container -->
+  </main>
+
+  <footer>
+    &copy; 2025 Jonathan Schoenberger
+  </footer>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "CSS Animation Effects Showcase",
+      "description": "A showcase of CSS-only animation effects, including entrance, exit, hover, and text animations, with customizable controls and copy-paste code snippets.",
+      "url": "https://www.techcentric.cc/animations.html"
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        Prism.highlightAll();
+        initializeControls();
+        adjustBodyPadding(); // Initial call after DOM is ready
+    });
+
+    function adjustBodyPadding() {
+        const header = document.querySelector('.fixed-header-controls');
+        if (header) {
+            requestAnimationFrame(() => {
+                const headerHeight = header.offsetHeight;
+                document.body.style.paddingTop = `${headerHeight}px`;
+            });
+        }
+    }
+    window.addEventListener('resize', adjustBodyPadding);
+
+    function announceToSR(message) {
+      const announcer = document.getElementById('aria-live-announcer');
+      if (announcer) {
+        announcer.textContent = message;
+      }
+    }
+
+    document.querySelectorAll('.copy-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const codeGroup = button.dataset.codeGroup;
+        let textToCopy = '';
+        const parentCodeContainer = button.closest('.code-container');
+
+        if (codeGroup) {
+            const activeCodeBlock = parentCodeContainer.querySelector(`.code-display-block.active pre code`);
+            if (activeCodeBlock) textToCopy = activeCodeBlock.textContent;
+        } else {
+            const targetId = button.getAttribute('data-target');
+            const codeElement = document.getElementById(targetId);
+            if (codeElement) textToCopy = codeElement.textContent;
+        }
+
+        if (textToCopy) {
+            navigator.clipboard.writeText(textToCopy.trim()).then(() => {
+                button.textContent = 'Copied!';
+                announceToSR('Code copied to clipboard.');
+                setTimeout(() => button.textContent = 'Copy', 2000);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+                button.textContent = 'Error';
+                 announceToSR('Error copying code.');
+                setTimeout(() => button.textContent = 'Copy', 2000);
+            });
+        }
+      });
+    });
+
+    document.querySelectorAll('[data-animation-group]').forEach(section => {
+        const groupName = section.dataset.animationGroup;
+        const controls = Array.from(section.querySelectorAll('[data-control-type]'));
+        const demoBox = section.querySelector(`[data-demo-box="${groupName}"]`);
+        const replayBtn = section.querySelector(`.replay-btn[data-anim-group="${groupName}"]`);
+        const durationValueSpan = section.querySelector('.duration-value');
+
+        const toKebabCase = (str) => str.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase();
+
+        let animPrefix;
+        const kebabGroupName = toKebabCase(groupName);
+
+        const prefixOverrides = {
+            'colorChangeHover': 'color-change-hover',
+            'rotateHover': 'rotate-hover',
+            'flipHover': 'flip-hover',
+            'marqueeScroll': 'marquee-scroll',
+            'tickerScroll': 'ticker-scroll',
+            'rubberBand': 'rubber-band',
+            'headShake': 'head-shake',
+            'textSlideFocus': 'text-slide-focus',
+            'jackInTheBox': 'jack-in-the-box',
+            'rotateOut': 'rotate-out',
+            'textReveal': 'text-reveal'
+        };
+        animPrefix = prefixOverrides[groupName] || kebabGroupName;
+
+        function findKeyframesCss(name) {
+            for (const sheet of document.styleSheets) {
+                try {
+                    if (sheet.cssRules) {
+                        for (const rule of sheet.cssRules) {
+                            if (rule.type === CSSRule.KEYFRAMES_RULE && rule.name === name) {
+                                return rule.cssText;
+                            }
+                        }
+                    }
+                } catch (e) { /* Silently ignore CORS errors */ }
+            }
+            if (name === "kenBurnsText") return "@keyframes kenBurnsText { \n  0% { transform: scale(1) translateX(0) translateY(0); opacity: 0.8; } \n  25% { transform: scale(1.02) translateX(-2px) translateY(1px); opacity: 1; } \n  50% { transform: scale(1) translateX(1px) translateY(-1px); opacity: 0.8; } \n  75% { transform: scale(1.02) translateX(2px) translateY(2px); opacity: 1; } \n  100% { transform: scale(1) translateX(0) translateY(0); opacity: 0.8; } \n}";
+            if (name === "textVibrate") return "@keyframes textVibrate { \n  0% { transform: translate(0); } 20% { transform: translate(-1px, 1px); } \n  40% { transform: translate(-1px, -1px); } 60% { transform: translate(1px, 1px); } \n  80% { transform: translate(1px, -1px); } 100% { transform: translate(0); } \n}";
+            if (name === "textGradientAnimate") return "@keyframes textGradientAnimate { \n  0% { background-position: 0% 50%; } \n  50% { background-position: 100% 50%; } \n  100% { background-position: 0% 50%; } \n}";
+            return `/* @keyframes ${name} definition not found. Ensure it's in your CSS. */`;
+        }
+
+        function updateAnimationAndCode(isReplay = false) {
+            let currentSettings = { direction: 'default', duration: '1', colors: {} };
+            let hasDirectionControl = false;
+            controls.forEach(control => {
+                const controlType = control.dataset.controlType;
+                if (controlType === 'direction') { currentSettings.direction = control.value; hasDirectionControl = true; }
+                if (controlType === 'duration') currentSettings.duration = control.value;
+                if (controlType === 'color') currentSettings.colors[control.dataset.cssVar] = control.value;
+            });
+            if (!hasDirectionControl && section.querySelector('[data-control-type="direction"]') === null) {
+                currentSettings.direction = 'default';
+            }
+
+            let baseAnimClass;
+            let specificAnimClass;
+
+            if (groupName === "fadeIn") {
+                baseAnimClass = "fade-anim";
+                specificAnimClass = "fade-anim";
+            } else if (groupName === "marqueeScroll" || groupName === "tickerScroll") {
+                baseAnimClass = "";
+                specificAnimClass = `scroll-${currentSettings.direction}`;
+            } else if (groupName.endsWith("Hover")) {
+                baseAnimClass = `${animPrefix}-base-anim`;
+                specificAnimClass = `${animPrefix}-${currentSettings.direction}-anim`;
+                if (groupName === "colorChangeHover") specificAnimClass = `${animPrefix}-anim`;
+            } else if (groupName === "zoomOut") {
+                 baseAnimClass = `${animPrefix}-base-anim`;
+                 specificAnimClass = `${animPrefix}-center-anim`;
+            } else {
+                baseAnimClass = `${animPrefix}-base-anim`;
+                specificAnimClass = (currentSettings.direction === 'default' || !hasDirectionControl) ? `${animPrefix}-anim` : `${animPrefix}-${currentSettings.direction}-anim`;
+            }
+
+            const fundamentalClasses = [];
+            if (demoBox.dataset.isTextDemo === 'true') {
+                fundamentalClasses.push('text-demo');
+                if (groupName === 'typewriter') fundamentalClasses.push('typewriter-base-anim');
+                else if (groupName === 'marqueeScroll') fundamentalClasses.push('marquee-text');
+                else if (groupName === 'tickerScroll') fundamentalClasses.push('ticker-text');
+                else if (groupName === 'textReveal') fundamentalClasses.push('text-reveal-base-anim');
+            } else {
+                fundamentalClasses.push('animation-box');
+            }
+
+            if (baseAnimClass && !fundamentalClasses.includes(baseAnimClass)) {
+                fundamentalClasses.push(baseAnimClass);
+            }
+
+            demoBox.className = fundamentalClasses.join(' ');
+            void demoBox.offsetWidth;
+
+            if (!groupName.endsWith("Hover")) {
+                if(specificAnimClass) {
+                    demoBox.classList.remove(specificAnimClass);
+                    void demoBox.offsetWidth;
+                    demoBox.classList.add(specificAnimClass);
+                }
+                demoBox.style.animationDuration = `${currentSettings.duration}s`;
+            } else if (groupName.endsWith("Hover")) {
+                if (specificAnimClass && !demoBox.classList.contains(specificAnimClass)) {
+                    demoBox.classList.add(specificAnimClass);
+                }
+                demoBox.style.setProperty('--dynamic-anim-duration', `${currentSettings.duration}s`);
+            }
+
+            if (currentSettings.colors) {
+                for (const varName in currentSettings.colors) {
+                    demoBox.style.setProperty(varName, currentSettings.colors[varName]);
+                    if (varName === '--anim-color-from' || varName === '--anim-color-to') {
+                        document.documentElement.style.setProperty(varName, currentSettings.colors[varName]);
+                    }
+                }
+            }
+
+            if (durationValueSpan) durationValueSpan.textContent = `${parseFloat(currentSettings.duration).toFixed(1)}s`;
+
+            section.querySelectorAll('.code-display-block').forEach(block => block.classList.remove('active'));
+            const activeCodeBlockContainer = section.querySelector(`.code-display-block[data-direction="${currentSettings.direction}"]`);
+
+            if (activeCodeBlockContainer) {
+                activeCodeBlockContainer.classList.add('active');
+                const codeElement = activeCodeBlockContainer.querySelector('code');
+                if (codeElement) {
+                    let originalCodeContent = codeElement.dataset.originalContent;
+                    if (!originalCodeContent) { originalCodeContent = codeElement.textContent; codeElement.dataset.originalContent = originalCodeContent; }
+
+                    let updatedCode = originalCodeContent;
+                    updatedCode = updatedCode.replace(/{{duration}}/g, parseFloat(currentSettings.duration).toFixed(1));
+
+                    let keyframeNameForSnippet = animPrefix.split('-').map((s, i) => (i === 0 && !animPrefix.startsWith("text-")) ? s : s.charAt(0).toUpperCase() + s.slice(1)).join('');
+                    if (animPrefix.startsWith("text-")) { const parts = animPrefix.split('-'); keyframeNameForSnippet = parts[0] + parts.slice(1).map(p => p.charAt(0).toUpperCase() + p.slice(1)).join(''); }
+
+                    if (groupName === "fadeIn") keyframeNameForSnippet = "fadeIn";
+                    else if (groupName === "marqueeScroll") keyframeNameForSnippet = "marqueeScroll" + currentSettings.direction.charAt(0).toUpperCase() + currentSettings.direction.slice(1);
+                    else if (groupName === "tickerScroll") keyframeNameForSnippet = "tickerScroll" + currentSettings.direction.charAt(0).toUpperCase() + currentSettings.direction.slice(1);
+                    else if (groupName === "rotateHover") keyframeNameForSnippet = "rotate" + currentSettings.direction.charAt(0).toUpperCase() + currentSettings.direction.slice(1);
+                    else if (groupName === "flipHover") keyframeNameForSnippet = "flipHover" + currentSettings.direction.charAt(0).toUpperCase() + currentSettings.direction.slice(1);
+                    else if (groupName === "colorChangeHover") keyframeNameForSnippet = "colorChange";
+                    else if (groupName === "zoomOut") keyframeNameForSnippet = "zoomOutCenter";
+                    else if (groupName === "shadowDrop") keyframeNameForSnippet = "shadowDropCenter";
+                    else if (groupName === "trackingExpand") keyframeNameForSnippet = "trackingInExpand";
+                    else if (groupName === "textFade") keyframeNameForSnippet = "textFadeIn";
+                    else if (groupName === "textPop") keyframeNameForSnippet = "textPopIn";
+                    else if (groupName === "textFocusIn") keyframeNameForSnippet = "textFocusIn";
+                    else if (groupName === "textBlurOut") keyframeNameForSnippet = "textBlurOut";
+                    else if (groupName === "textSlideFocus") keyframeNameForSnippet = "textSlideFocusIn";
+                    else if (groupName === "typewriter") keyframeNameForSnippet = "typewriter";
+                    else if (groupName === "textReveal") keyframeNameForSnippet = "textReveal" + currentSettings.direction.charAt(0).toUpperCase() + currentSettings.direction.slice(1);
+                    else if (currentSettings.direction !== 'default' && hasDirectionControl) {
+                         keyframeNameForSnippet += currentSettings.direction.charAt(0).toUpperCase() + currentSettings.direction.slice(1);
+                    }
+
+                    const keyframesDefinition = findKeyframesCss(keyframeNameForSnippet);
+                    updatedCode = updatedCode.replace(/{{keyframesDefinition}}/g, keyframesDefinition);
+                    updatedCode = updatedCode.replace(/{{keyframeName}}/g, keyframeNameForSnippet);
+                    updatedCode = updatedCode.replace(/{{className}}/g, specificAnimClass);
+
+                    if (currentSettings.colors['--anim-color-from']) updatedCode = updatedCode.replace(/{{colorFrom}}/g, currentSettings.colors['--anim-color-from']);
+                    if (currentSettings.colors['--anim-color-to']) updatedCode = updatedCode.replace(/{{colorTo}}/g, currentSettings.colors['--anim-color-to']);
+
+                    codeElement.textContent = updatedCode;
+                    Prism.highlightElement(codeElement);
+                }
+            }
+        }
+
+        controls.forEach(control => {
+            control.addEventListener(control.type === 'range' || control.type === 'color' ? 'input' : 'change', () => updateAnimationAndCode(false));
+        });
+
+        if (replayBtn) {
+            replayBtn.addEventListener('click', () => {
+                let currentDirection = 'default';
+                const directionControl = section.querySelector('[data-control-type="direction"]');
+                if (directionControl) currentDirection = directionControl.value;
+
+                let specificAnimClassToClear;
+                if (groupName === "fadeIn") specificAnimClassToClear = "fade-anim";
+                else if (groupName === "marqueeScroll" || groupName === "tickerScroll") specificAnimClassToClear = `scroll-${currentDirection}`;
+                else if (groupName.endsWith("Hover")) {
+                    specificAnimClassToClear = `${animPrefix}-${currentDirection}-anim`;
+                    if (groupName === "colorChangeHover") specificAnimClassToClear = `${animPrefix}-anim`;
+                } else if (groupName === "zoomOut") specificAnimClassToClear = `${animPrefix}-center-anim`;
+                else {
+                    const hasDirCtrl = directionControl !== null;
+                    specificAnimClassToClear = (currentDirection === 'default' || !hasDirCtrl) ? `${animPrefix}-anim` : `${animPrefix}-${currentDirection}-anim`;
+                }
+
+                if(specificAnimClassToClear) demoBox.classList.remove(specificAnimClassToClear);
+                demoBox.style.animation = '';
+                demoBox.style.animationName = '';
+                demoBox.style.animationDuration = '';
+                demoBox.style.opacity = '';
+                demoBox.style.transform = '';
+
+                if (groupName === 'typewriter' && demoBox.dataset.isTextDemo === 'true') {
+                    demoBox.style.width = '';
+                }
+                if (groupName === "flipHover") {
+                    demoBox.style.transform = `perspective(800px) rotateX(0) rotateY(0)`;
+                }
+
+                void demoBox.offsetWidth;
+                updateAnimationAndCode(true);
+                announceToSR(`${groupName} animation replayed.`);
+            });
+        }
+        updateAnimationAndCode(false);
+    });
+
+    function initializeControls() {
+        const themeToggleButton = document.getElementById('theme-toggle');
+        const themeIcon = themeToggleButton.querySelector('i');
+        const themeText = themeToggleButton.querySelector('.button-text-desktop');
+        const body = document.body;
+
+        function applyTheme(theme) {
+            body.classList.toggle('dark-mode', theme === 'dark-mode');
+            if (theme === 'dark-mode') {
+                themeIcon.className = 'fas fa-sun';
+                if (themeText) themeText.textContent = 'Light Mode';
+            } else {
+                themeIcon.className = 'fas fa-moon';
+                if (themeText) themeText.textContent = 'Dark Mode';
+            }
+            Prism.highlightAll();
+            requestAnimationFrame(adjustBodyPadding);
+        }
+
+        const currentTheme = localStorage.getItem('theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark-mode' : 'light-mode');
+        applyTheme(currentTheme);
+
+        themeToggleButton.addEventListener('click', () => {
+            const newTheme = body.classList.contains('dark-mode') ? 'light-mode' : 'dark-mode';
+            applyTheme(newTheme);
+            localStorage.setItem('theme', newTheme);
+            announceToSR(`Switched to ${newTheme.replace('-', ' ')}.`);
+        });
+
+        if (window.matchMedia) {
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+                const newTheme = e.matches ? "dark-mode" : "light-mode";
+                applyTheme(newTheme);
+                localStorage.setItem('theme', newTheme);
+            });
+        }
+
+        const viewToggleButton = document.getElementById('view-toggle');
+        const viewIcon = viewToggleButton.querySelector('i');
+        const viewText = viewToggleButton.querySelector('.button-text-desktop');
+
+        function applyView(view) {
+            body.classList.toggle('grid-view-active', view === 'grid-view');
+            if (view === 'grid-view') {
+                viewIcon.className = 'fas fa-list';
+                if(viewText) viewText.textContent = 'List View';
+            } else {
+                viewIcon.className = 'fas fa-th-large';
+                if(viewText) viewText.textContent = 'Grid View';
+            }
+             requestAnimationFrame(adjustBodyPadding);
+        }
+        const currentView = localStorage.getItem('viewPreference') || 'grid-view';
+        applyView(currentView);
+
+        viewToggleButton.addEventListener('click', () => {
+            const newView = body.classList.contains('grid-view-active') ? 'list-view' : 'grid-view';
+            applyView(newView);
+            localStorage.setItem('viewPreference', newView);
+            announceToSR(`Switched to ${newView.replace('-', ' ')}.`);
+        });
+
+        const searchInput = document.getElementById('animation-search');
+        const allDemoSections = Array.from(document.querySelectorAll('#animation-showcase-container .demo-section'));
+        const noResultsMessage = document.getElementById('no-results-message');
+        const animationShowcaseContainer = document.getElementById('animation-showcase-container');
+        let hasScrolledForSearch = false;
+
+        let searchTimeout;
+        searchInput.addEventListener('input', (e) => {
+            clearTimeout(searchTimeout);
+            const searchTerm = e.target.value.toLowerCase().trim();
+
+            if (searchTerm && !hasScrolledForSearch && animationShowcaseContainer) {
+                const header = document.querySelector('.fixed-header-controls');
+                const headerHeight = header ? header.offsetHeight : 0;
+                const targetElementTop = animationShowcaseContainer.getBoundingClientRect().top + window.pageYOffset - headerHeight - 10;
+                window.scrollTo({ top: targetElementTop, behavior: 'smooth' });
+                hasScrolledForSearch = true;
+            } else if (!searchTerm) {
+                hasScrolledForSearch = false;
+            }
+
+            let sectionsFound = 0;
+            allDemoSections.forEach(section => {
+                const title = (section.querySelector('h2')?.textContent || '').toLowerCase();
+                const group = (section.dataset.animationGroup || '').toLowerCase();
+                const mainHeadingText = (section.previousElementSibling?.classList.contains('main-section-heading') ? section.previousElementSibling.textContent : '').toLowerCase();
+
+                const isMatch = title.includes(searchTerm) || group.includes(searchTerm) ||
+                                (searchTerm === "element" && mainHeadingText.includes("element animation effects")) ||
+                                (searchTerm === "text" && mainHeadingText.includes("text animation effects")) ||
+                                (searchTerm === "hover" && mainHeadingText.includes("on hover effects"));
+
+                section.classList.toggle('hidden-by-search', !isMatch);
+                if (isMatch) sectionsFound++;
+            });
+
+            noResultsMessage.style.display = (sectionsFound === 0 && searchTerm) ? 'block' : 'none';
+
+            searchTimeout = setTimeout(() => {
+                if (searchTerm) {
+                    const resultText = sectionsFound === 1 ? 'animation found' : 'animations found';
+                    announceToSR(`${sectionsFound} ${resultText}.`);
+                } else {
+                     announceToSR('Search cleared.');
+                }
+            }, 500);
+        });
+    }
+
+  </script>
+</body>
+</html>
