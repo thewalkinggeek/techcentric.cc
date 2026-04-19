@@ -223,12 +223,12 @@ img { max-width: 100%; height: auto; display: block; }
 .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; padding-top: 100px; overflow: hidden; background: linear-gradient(135deg, color-mix(in srgb, var(--bg-color) 90%, var(--primary-accent)) 0%, var(--bg-color) 100%); }
 .dark-mode .hero { background: linear-gradient(135deg, color-mix(in srgb, var(--bg-color) 90%, var(--primary-accent)) 0%, var(--bg-color) 100%); }
 
-/* Apply Hero background to Skills, Portfolio, and System sections */
-#skills, #portfolio, #system {
+/* Apply Hero background to Skills, Portfolio, System, and Hobby sections */
+#skills, #portfolio, #system, #hobby {
     background: linear-gradient(135deg, color-mix(in srgb, var(--bg-color) 90%, var(--primary-accent)) 0%, var(--bg-color) 100%);
 }
 
-.dark-mode #skills, .dark-mode #portfolio, .dark-mode #system {
+.dark-mode #skills, .dark-mode #portfolio, .dark-mode #system, .dark-mode #hobby {
     background: linear-gradient(135deg, color-mix(in srgb, var(--bg-color) 90%, var(--primary-accent)) 0%, var(--bg-color) 100%);
 }
 
@@ -386,14 +386,6 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 /* --- Hobby Section --- */
-#hobby {
-    background-color: #020202;
-}
-
-#hobby.section-with-bg::before {
-    display: none;
-}
-
 .hobby-info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
 .hobby-card { background-color: var(--card-bg); padding: 30px; border-radius: var(--border-radius); box-shadow: var(--box-shadow); text-align: center; border: 1px solid var(--border-color); transition: transform var(--transition-speed), box-shadow var(--transition-speed); }
 .hobby-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px color-mix(in srgb, var(--primary-accent) 15%, transparent); }
@@ -401,6 +393,39 @@ img { max-width: 100%; height: auto; display: block; }
 .hobby-card h3 { font-size: 1.5rem; margin-bottom: 15px; }
 .hobby-card p { font-size: 0.95rem; color: color-mix(in srgb, var(--text-color) 85%, transparent); line-height: 1.6; }
 .hobby-card p:last-child { margin-bottom: 0; }
+
+.mnemos-container {
+    padding: 40px;
+    margin: 40px auto 0 auto;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    border: 1px solid var(--border-color);
+}
+
+.mnemos-logo.mnemos-dark {
+    display: none !important;
+}
+
+.dark-mode .mnemos-logo.mnemos-light {
+    display: none !important;
+}
+
+.dark-mode .mnemos-logo.mnemos-dark {
+    display: block !important;
+}
+
+.dark-mode #hobby {
+    background-color: #020202;
+}
+
+.dark-mode .mnemos-container {
+    background-color: #020202;
+}
 
 /* --- Contact Section --- */
 .contact-subtitle { font-size: 1.1rem; max-width: 650px; margin: 0 auto 40px auto; color: color-mix(in srgb, var(--text-color) 80%, transparent); }
