@@ -223,13 +223,21 @@ img { max-width: 100%; height: auto; display: block; }
 .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; padding-top: 100px; overflow: hidden; background: linear-gradient(135deg, color-mix(in srgb, var(--bg-color) 90%, var(--primary-accent)) 0%, var(--bg-color) 100%); }
 .dark-mode .hero { background: linear-gradient(135deg, color-mix(in srgb, var(--bg-color) 90%, var(--primary-accent)) 0%, var(--bg-color) 100%); }
 
-/* Apply Hero background to Skills, Portfolio, System, and Hobby sections */
-#skills, #portfolio, #system, #hobby {
+/* Apply Hero background to Skills, Portfolio, and System sections */
+#skills, #portfolio, #system {
     background: linear-gradient(135deg, color-mix(in srgb, var(--bg-color) 90%, var(--primary-accent)) 0%, var(--bg-color) 100%);
 }
 
-.dark-mode #skills, .dark-mode #portfolio, .dark-mode #system, .dark-mode #hobby {
+.dark-mode #skills, .dark-mode #portfolio, .dark-mode #system {
     background: linear-gradient(135deg, color-mix(in srgb, var(--bg-color) 90%, var(--primary-accent)) 0%, var(--bg-color) 100%);
+}
+
+#hobby {
+    background: linear-gradient(135deg, color-mix(in srgb, var(--bg-color) 90%, var(--primary-accent)) 0%, var(--bg-color) 100%);
+}
+
+.dark-mode #hobby {
+    background: #020202 !important;
 }
 
 .hero-content { position: relative; z-index: 2; animation: fadeInHero 1s ease-out forwards; }
@@ -401,7 +409,7 @@ img { max-width: 100%; height: auto; display: block; }
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #020202;
+    background-color: var(--card-bg);
 }
 
 .mnemos-logo {
@@ -424,7 +432,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .dark-mode #hobby {
-    background-color: #020202;
+    background: #020202 !important;
 }
 
 .dark-mode .mnemos-container {
